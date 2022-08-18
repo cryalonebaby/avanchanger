@@ -1,0 +1,54 @@
+{
+  "name": "mern-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    "dev": "cross-env NODE_ENV=development ./node_modules/.bin/concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "mern",
+    "react"
+  ],
+  "author": "NN",
+  "license": "ISC",
+  "dependencies": {
+    "@admin-bro/express": "^3.1.0",
+    "@admin-bro/mongoose": "^1.0.2",
+    "admin-bro": "^3.2.5",
+    "bcrypt": "^5.0.1",
+    "config": "^3.3.7",
+    "connect-timeout": "^1.9.0",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.14.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.6",
+    "openssl": "^2.0.0",
+    "path-browserify": "^1.0.1",
+    "puppeteer": "^14.1.1",
+    "react-router-dom": "^6.2.2",
+    "tslib": "^2.3.1",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@babel/plugin-transform-react-display-name": "^7.16.7",
+    "@babel/plugin-transform-react-jsx": "^7.17.3",
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "customize-cra": "^1.0.0",
+    "nodemon": "^2.0.15",
+    "react-app-rewired": "^2.2.1"
+  }
+}

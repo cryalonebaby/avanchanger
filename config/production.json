@@ -1,0 +1,5 @@
+{
+    "port": 5000,
+    "jwtSecret": "nikita mern",
+    "mongoUri": "mongodb+srv://nik:nikita21@cluster0.3xda7.mongodb.net/changer?retryWrites=true&w=majority"
+}

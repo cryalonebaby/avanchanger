@@ -1,0 +1,189 @@
+.popup {
+    position: fixed;
+    z-index: 99;
+    background: rgba(54,70,93,.95);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.active {
+    display: block;
+}
+.popup .in {
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 480px;
+    margin-left: -240px;
+    margin-top: -300px;
+    border-radius: 12px 12px 10px 10px;
+    -moz-border-radius: 12px 12px 10px 10px;
+    -webkit-border-radius: 12px 12px 10px 10px;
+    box-shadow: 0 30px 100px rgb(32 43 59 / 95%);
+}
+.popup .popupHeader {
+    background: #182536;
+    padding: 15px 20px;
+    border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    text-align: left;
+    color: #fff;
+    background: #3dd94b;
+}
+.popup .popupHeader .icon {
+    font-size: 18px;
+    color: #c2e7c5;
+}
+.popup .close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 21px;
+    color: #fff;
+    font-size: 12px;
+}
+.popup .close span {
+    cursor: pointer;
+}
+.popup .popupContainer {
+    padding: 30px 20px 20px 20px;
+    width: 380px;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.popup .line {
+    margin: 0 0 10px 0;
+}
+.popup .line .inp {
+    height: 42px;
+    font-size: 14px;
+    padding: 0 18px;
+}
+.inp, .textarea {
+    outline: 0;
+    height: 46px;
+    padding: 15px 20px;
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid #d6dce7;
+    color: #021627;
+    -webkit-transition: all ease-out .1s;
+    -moz-transition: all ease-out .1s;
+    -ms-transition: all ease-out .1s;
+    -o-transition: all ease-out .1s;
+    transition: all ease-out .1s;
+}
+.lineCpt {
+    display: flex;
+}
+.popup .lineInfo {
+    font-size: 11px;
+    text-align: center;
+    color: #a8aac3;
+}
+.popup .lineButtons {
+    margin-top: 20px;
+}
+.popup .line .fl {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.btn {
+    color: #fff;
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 40px;
+    font-weight: 700;
+    min-width: 80px;
+    outline: 0;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -webkit-transition: all ease-out .1s;
+    -moz-transition: all ease-out .1s;
+    -ms-transition: all ease-out .1s;
+    -o-transition: all ease-out .1s;
+    transition: all ease-out .1s;
+    background: #0facf3;
+    background-image: -moz-linear-gradient(90deg,#0facf3 0,#67cffd 100%);
+    background-image: -webkit-linear-gradient(90deg,#0facf3 0,#67cffd 100%);
+    background-image: -ms-linear-gradient(90deg,#0facf3 0,#67cffd 100%);
+    box-shadow: 0 3px 8px 0 rgb(103 116 116 / 20%);
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+.popup .line .btn {
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+}
+.btn.green {
+    background: #3dd94b;
+    background-image: -moz-linear-gradient(90deg,#3dd94b 0,#6be877 100%);
+    background-image: -webkit-linear-gradient(90deg,#3dd94b 0,#6be877 100%);
+    background-image: -ms-linear-gradient(90deg,#3dd94b 0,#6be877 100%);
+}
+
+.link {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #0facf3;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .popup .in {
+        top: 10%;
+        left: 0;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0;
+        border-radius: 0;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0px;
+    }
+    .popup .popupHeader {
+        border-radius: 0;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0px;
+    }
+    .popup .lineButtons .l {
+        margin-bottom: 20px;
+    }
+    .popup .lineButtons {
+        flex-wrap: wrap;
+    }
+    .popup .lineButtons .l, .popup .lineButtons .r {
+        width: 100%;
+        text-align: center;
+    }
+}

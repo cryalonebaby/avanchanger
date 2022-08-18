@@ -1,0 +1,138 @@
+/* @import "~materialize-css/dist/css/materialize.min.css"; */
+.wrapperHeader {
+    background: #2c414b;
+    background-image: -moz-linear-gradient(90deg,#3f5967 0,#23353e 100%);
+    background-image: -webkit-linear-gradient(90deg,#3f5967 0,#23353e 100%);
+    background-image: -ms-linear-gradient(90deg,#3f5967 0,#23353e 100%); 
+    margin-bottom: 0;
+}
+.headerTop {
+    background: #0d151e;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    min-width: 320px;
+}
+.inner {
+    padding: 0 30px;
+    max-width: 1680px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.right .eas {
+    color: #fff;
+    text-decoration: none;
+}
+.eas {
+    -webkit-transition: all ease-out .2s;
+    -moz-transition: all ease-out .2s;
+    -ms-transition: all ease-out .2s;
+    -o-transition: all ease-out .2s;
+    transition: all ease-out .2s;
+}
+.signWrapper > *{
+    vertical-align: middle;
+}
+.signWrapper > span {
+    cursor: pointer !important;
+}
+.signWrapper .eas:hover {
+    color: #ff7d00;
+}
+.headerTop .left a {
+    margin-right: 40px;
+    color: #9eacbd;
+    text-decoration: none;
+}
+.headerTop .left a .ico-2 {
+    color: #0facf3;
+    font-size: 12px;
+    margin-right: 3px;
+}
+.headerTop .left a .ico-3 {
+    color: #3dd94b;
+    font-size: 12px;
+    margin-right: 3px;
+}
+.headerTop .worktime {
+    color: #7a8593;
+    border-left: 1px solid #43474f;
+    padding-left: 30px;
+}
+.headerTop .worktime span {
+    position: relative;
+    padding-left: 25px;
+    cursor: default;
+}
+.headerTop .worktime span:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: url(../../img/24-7.svg) no-repeat center center;
+    background-size: 15px 15px;
+    content: '';
+}
+.headerTop .worktime b {
+    font-weight: 400;
+    color: #fff;
+}
+.headerTop .right .ico-4 {
+    color: #ff7d00;
+    font-size: 12px;
+    margin-right: 3px;
+}
+.headerTop .right a {
+    color: #fff;
+    text-decoration: none;
+}
+
+@media (max-width: 340px) {
+    .inner {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headerTop .left a .ico1 {
+        font-size: 8px;
+    }
+    .headerTop .left a, .headerTop .right a {
+        font-size: 12px;
+    }
+    .headerTop .right .ico4 {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 740px) {
+    .headerTop .left a {
+        margin-right: 30px;
+    }
+    
+    .headerTop .headerEmail {
+        display: none;
+    }
+    .headerTop .headerTelegram {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .inner {
+        padding: 0 20px;
+    }
+    .headerTop .worktime {
+        display: none;
+    }
+}

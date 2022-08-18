@@ -1,0 +1,105 @@
+.anonceTelegram {
+    padding: 20px 180px 20px 80px;
+    line-height: 20px;
+    margin: 40px 0 -20px 0;
+    background: rgba(13,21,30,.2);
+    color: #95abb7;
+    border-radius: 5px;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+}
+.anonceTelegram h5 {
+    color: #fff;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 0 0 8px 0;
+    font-weight: 700;
+}
+.btn {
+    color: #fff;
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 40px;
+    font-weight: 700;
+    min-width: 80px;
+    outline: 0;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -webkit-transition: all ease-out .1s;
+    -moz-transition: all ease-out .1s;
+    -ms-transition: all ease-out .1s;
+    -o-transition: all ease-out .1s;
+    transition: all ease-out .1s;
+    background: #0facf3;
+    background-image: -moz-linear-gradient(90deg,#0facf3 0,#67cffd 100%);
+    background-image: -webkit-linear-gradient(90deg,#0facf3 0,#67cffd 100%);
+    background-image: -ms-linear-gradient(90deg,#0facf3 0,#67cffd 100%);
+    box-shadow: 0 3px 8px 0 rgb(103 116 116 / 20%);
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+.anonceTelegram .btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -20px;
+    padding: 0 20px;
+    height: 44px;
+    line-height: 44px;
+    text-transform: none;
+    background: #fff;
+    color: #333;
+}
+.anonceTelegram .btn > * {
+    vertical-align: middle;
+}
+.anonceTelegram .icon {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    margin-top: -18px;
+}
+.anonceTelegram .btnIcon {
+    margin-right: 5px;
+} 
+
+
+@media (max-width: 480px) {
+    .anonceTelegram {
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 0;
+        margin-bottom: -60px;
+    }
+}
+
+@media (max-width: 740px) {
+    .anonceTelegram {
+        padding: 20px;
+        line-height: 20px;
+    }
+    .anonceTelegram .icon {
+        display: none;
+    }
+    .anonceTelegram .btn {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 13px;
+        height: 40px;
+        line-height: 40px;
+        display: block;
+    }
+}

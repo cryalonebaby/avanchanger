@@ -1,0 +1,293 @@
+.booster {
+    font-size: 17px;
+    line-height: 28px;
+    padding: 50px 0;
+}
+.inner {
+    padding: 0 30px;
+    max-width: 1680px;
+    width: 100%;
+    min-width: 320px;
+    position: relative;
+    margin: 0 auto;
+}
+.booster .block1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.booster .block1 .l {
+    align-self: center;
+}
+.booster h1 {
+    font-size: 42px;
+    line-height: 42px;
+    padding-bottom: 20px;
+}
+.booster .block1 p {
+    padding: 0 0 20px 54px;
+    width: 860px;
+    max-width: 100%;
+    font-size: 18px;
+    line-height: 30px;
+}
+.booster .block1 .r {
+    width: 380px;
+    background: #fff;
+    box-shadow: 0 30px 80px rgb(131 151 184 / 40%);
+    padding: 20px 20px 30px 20px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    background: #8929a7 no-repeat left bottom;
+    background-size: 100% auto;
+    color: #fff;
+}
+.booster .block1 .r .flow {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0 20px 0;
+    font-size: 15px;
+}
+.booster .block1 .r .flow .f1 {
+    width: 50%;
+}
+.booster .block1 .r .flow .f1 b {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    display: block;
+    margin: 0 auto 10px auto;
+    background: rgba(15,21,29,.2);
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    letter-spacing: -.2px;
+}
+.booster .block1 .r .flow .f2 {
+    width: 50%;
+}
+.booster .block1 .r .flow .f2 b {
+    color: #fff;
+    background: #3dd94b;
+    box-shadow: 0 30px 80px rgb(131 151 184 / 90%);
+    background-size: 100%;
+    font-size: 20px;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    letter-spacing: -.2px;
+}
+.booster .block1 .r .flow .f2 div {
+    font-weight: 700;
+}
+.booster .block1 .r .arrow {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    top: 70px;
+    left: 50%;
+    margin-left: -20px;
+    font-size: 20px;
+}
+.booster .block1 .r .discount {
+    text-align: left;
+    background: rgba(15,21,29,.3);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #ad72c0;
+}
+.booster .block1 .r .discount b {
+    color: #fff;
+}
+.booster .block1 .r .button {
+    text-align: center;
+    padding: 30px 0 0 0;
+}
+.btn {
+    width: 240px;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 40px;
+    font-weight: 700;
+    min-width: 80px;
+    outline: 0;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -webkit-transition: all ease-out .1s;
+    -moz-transition: all ease-out .1s;
+    -ms-transition: all ease-out .1s;
+    -o-transition: all ease-out .1s;
+    transition: all ease-out .1s;
+    background: #3dd94b;
+    background-image: -moz-linear-gradient(90deg,#3dd94b 0,#6be877 100%);
+    background-image: -webkit-linear-gradient(90deg,#3dd94b 0,#6be877 100%);
+    background-image: -ms-linear-gradient(90deg,#3dd94b 0,#6be877 100%);
+    box-shadow: 0 3px 8px 0 rgb(103 116 116 / 20%);
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+.booster .block2 {
+    margin: 50px 0;
+    padding: 50px 0;
+    background: #fafafc;
+}
+.booster .block2 h3 {
+    font-size: 32px;
+    line-height: 32px;
+    margin-bottom: 30px;
+}
+.booster .block3 h3 {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+.booster .block3 .sides {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.booster .block3 .l {
+    margin-right: 1.5%;
+    width: 50%;
+}
+.booster .block3 .question {
+    padding-bottom: 20px;
+}
+.booster .block3 .question h5 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0facf3;
+    position: relative;
+    padding-left: 40px;
+}
+.booster .block3 .question.opened h5 {
+    color: #3c4859;
+}
+.booster .block3 .question h5 span {
+    border-bottom: 1px dashed #0facf3;
+    -webkit-transition: all ease-out .2s;
+    -moz-transition: all ease-out .2s;
+    -ms-transition: all ease-out .2s;
+    -o-transition: all ease-out .2s;
+    transition: all ease-out .2s;
+}
+.booster .block3 .question.opened h5 span {
+    border-bottom: 1px dotted transparent;
+}
+.booster .block3 .question .answer {
+    font-size: 16px;
+    line-height: 24px;
+    background: #fff;
+    border-radius: 6px;
+    margin: 20px 0 0 0;
+    padding: 15px 20px;
+    box-shadow: 0 20px 60px 0 rgb(13 21 30 / 6%);
+    display: none;
+}
+.booster .block3 .question.opened .answer {
+    display: block;
+    word-break: break-word;
+}
+.booster .block3 .r {
+    margin-left: 1.5%;
+    width: 50%;
+}
+
+@media (max-width: 1180px) {
+    .booster .block1 p {
+        width: 540px;
+        font-size: 17px;
+        line-height: 26px;
+    }
+    .booster .block1 .r {
+        width: 320px;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .inner {
+        padding: 0 20px;
+    }
+    .booster .block3{
+        margin-bottom: 20px;
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .booster .block3 .inner {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .booster .block3 .sides{
+        display: block;
+        justify-content: left;
+    }
+    .booster .block3 .l {
+        margin-right: 0;
+        width: 100%;
+    }
+    .booster .block3 .r {
+        margin-left: 0;
+        width: 100%;
+    }
+
+
+}
+
+@media (max-width: 980px) {
+    .booster .block1 {
+        display: block;
+    }
+    .booster .block1 .l {
+        padding: 30px;
+    }
+    .booster .block1 p {
+        width: 100%;
+        font-size: 17px;
+        line-height: 26px;
+        padding-bottom: 40px;
+    }
+    .booster .block1 .r {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .booster h1 {
+        font-size: 28px;
+        line-break: 28px;
+        padding: 0 0 10px 0;
+    }
+    .booster .block1 p {
+        padding: 0;
+    }
+}

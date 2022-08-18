@@ -1,0 +1,189 @@
+.customCurrencyDropdown {
+    position: relative;
+    margin-bottom: 30px;
+}
+.customCurrencyDropdown .selected {
+    border: 1px solid #edf2f5;
+    border: 1px solid #d9e3e9;
+    border-radius: 10px;
+    padding: 15px 20px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid #d9e3e9;
+}
+.customCurrencyDropdown .selected .icon {
+    display: flex;
+    height: 30px;
+    min-width: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+.customCurrencyDropdownTitle {
+    outline: 0!important;
+    text-decoration: none;
+}
+.customCurrencyDropdown .selected .name {
+    font-size: 18px;
+    font-weight: 700;
+    align-items: left;
+    color: #0d151e;
+}
+.customCurrencyDropdown .selected .currency{
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #79a;
+    margin-left: 5px;
+}
+.customCurrencyDropdown .selected .arrow {
+    font-weight: 700;
+    position: absolute;
+    right: 20px;
+}
+.customCurrencyDropdown .search {
+    border: 1px solid #d9e3e9;
+    box-shadow: 0 10px 25px rgb(147 170 184 / 10%);
+    border-radius: 10px 10px 0 0;
+}
+.customCurrencyDropdown .search .inp {
+    border: 0;
+    position: relative;
+    height: 64px;
+    width: 100%;
+    padding: 15px 20px 15px 64px;
+    border-radius: 10px 10px 0 0;
+    outline: 0;
+}
+.customCurrencyDropdown .search .icon {
+    background-size: 22px 22px;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    margin-top: -11px;
+    z-index: 3;
+}
+.customCurrencyDropdown .search .arrow {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 3;
+    cursor: pointer;
+    font-weight: 700;
+}
+.customCurrencyDropdown.opened .list, .custom-currency-dropdown.opened .search {
+    display: block;
+}
+.customCurrencyDropdown .list {
+    margin-left: 0px;
+    display: block;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+}
+.customCurrencyDropdown ul {
+    max-height: 450px;
+    box-shadow: 0 10px 25px rgb(147 170 184 / 30%);
+    border-radius: 0 0 10px 10px;
+    overflow-y: auto;
+    z-index: 2;
+    border: 1px solid #d9e3e9;
+    border: 1px solid #c5d1d9;
+    border-top: 0;
+    background: #fff;
+}
+.customCurrencyDropdown ul li:first-child {
+    border-top: 0;
+}
+.customCurrencyDropdown ul li.empty {
+    padding: 30px 20px;
+    display: block;
+}
+.customCurrencyDropdown ul li {
+    padding: 15px 20px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border-top: 1px dashed #edf2f5;
+}
+.customCurrencyDropdown ul li.active, .customCurrencyDropdown ul li:hover {
+    background: #edf2f5;
+}
+.customCurrencyDropdown ul li .icon {
+    display: flex;
+    height: 30px;
+    min-width: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+.customCurrencyDropdown ul li .name {
+    font-size: 18px;
+    font-weight: 700;
+    align-items: left;
+    color: #0d151e;
+}
+.customCurrencyDropdown ul li .currency {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #79a;
+    margin-left: 5px;
+}
+.customCurrencyDropdown .rate {
+    font-weight: 700;
+    position: absolute;
+    right: 20px;
+}
+.customCurrencyDropdown .rate {
+    font-weight: 700;
+    position: absolute;
+    right: 20px;
+}
+
+@media (max-width: 480px) {
+    .customCurrencyDropdown {
+        margin-bottom: 40px;
+    }
+    .customCurrencyDropdown .selected {
+        background: #fff;
+        border-color: #fff;
+        border-radius: 6px;
+        padding: 10px 16px;
+    }
+    .customCurrencyDropdown .selected .icon, .customCurrencyDropdown ul li .icon {
+        margin-right: 8px;
+        height: 24px;
+        min-width: 24px;
+    }
+    .customCurrencyDropdown .selected .name, .customCurrencyDropdown ul li .name {
+        font-size: 16px;
+    }
+    .customCurrencyDropdown .selected .currency, .customCurrencyDropdown ul li .currency {
+        font-size: 14px;
+    }
+    .customCurrencyDropdown .search {
+        border-radius: 6px 6px 0 0;
+    }
+    .customCurrencyDropdown .search .inp {
+        height: 50px;
+        padding: 15px 20px 15px 50px;
+    }
+    .customСurrencyВropdown .search .icon {
+        left: 16px;
+    }
+    .customCurrencyDropdown .search .arrow {
+        top: 7px;
+    }
+    .customCurrencyDropdown .rate {
+        font-size: 12px;
+        font-weight: 400;
+    }
+}

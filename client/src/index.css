@@ -1,0 +1,28 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    
+    line-height: 1;
+    font: 14px/18px 'PT Sans', sans-serif;
+    color: #3c4859;
+    font-weight: 400;
+    background: #fff;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+html {
+    min-width: 320px;
+}

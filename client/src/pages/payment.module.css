@@ -1,0 +1,23 @@
+.payment {
+    font-size: 16px;
+    line-height: 28px;
+    padding: 40px 0 30px 0;
+    color: #3c4859;
+}
+
+@media (max-width: 480px) {
+    .payment {
+        overflow: hidden;
+        font-size: 14px;
+        line-height: 28px;
+        padding: 30px 0 20px 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .payment {
+        font-size: 14px;
+        line-height: 28px;
+        padding: 30px 0 20px 0;
+    }
+}

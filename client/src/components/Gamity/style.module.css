@@ -1,0 +1,159 @@
+.gamityMain {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 2;
+    margin: 20px 0 0 0;
+}
+.gamityMain .fifty {
+    width: 50%;
+}
+.gamityMain .fifty:nth-child(1) {
+    padding-right: 15px;
+}
+.gamityMain .fifty .in {
+    background: rgba(15,21,29,.3);
+    color: #fff;
+    height: 71px;
+    padding: 12px 166px 15px 65px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    position: relative;
+    background: -webkit-linear-gradient(90deg,rgba(15,21,29,.3) 0,rgba(15,21,29,.1) 100%);
+    min-height: 90px;
+}
+.gamityMain .fifty h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+}
+.gamityMain .fifty .image {
+    width: 50px;
+    height: 60px;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+.gamityMain .fifty .desc {
+    color: #7a8593;
+    line-height: 17px;
+    margin-left: 10px;
+}
+.gamityMain .fifty .desc span {
+    color: #fff;
+    font-weight: 700;
+}
+.gamityMain .fifty:nth-child(1) h3 span {
+    color: #3dd94b;
+}
+.gamityMain .fifty:nth-child(2) h3 span {
+    color: #0facf3;
+}
+.gamityMain .new {
+    background: #0facf3;
+    color: #fff!important;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 0 4px 0 3px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    height: 17px;
+    line-height: 17px;
+    top: -1px;
+    margin: 0 0 0 3px;
+}
+.gamityMain .fifty .button {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    margin-top: -20px;
+}
+.gamityMain .iphone .button a {
+    background: #5fa9ea;
+    background: #5fa9ea;
+    background: linear-gradient(180deg,#5fa9ea 0,#1688ec 100%);
+    border: none;
+    margin-top: 1px;
+}
+.gamityMain .fifty .button a {
+    text-decoration: none;
+    border: 1px solid #7a8593;
+    border: 1px solid #58626f;
+    height: 38px;
+    line-height: 36px;
+    padding: 0 20px;
+    outline: 0;
+    display: inline-block;
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    color: #fff;
+    font-weight: 700;
+    min-width: 110px;
+    text-align: center;
+}
+
+
+@media (max-width: 1024px) {
+    .gamityMain {
+        margin: 35px 0 0 0;
+    }
+    .gamityMain .fifty:nth-child(1) {
+        padding-right: 10px;
+    }
+    .gamityMain .fifty:nth-child(2) {
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .gamityMain {
+        margin: 25px 0 0 0;
+    }
+    .gamityMain .fifty:nth-child(1) {
+        padding-right: 0;
+        width: 100%;
+    }
+    .gamityMain .fifty:nth-child(2) {
+        display: none;
+    }
+    .gamityMain .fifty .in {
+        min-height: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gamityMain {
+        margin: 25px 0 0 0;
+    }
+    .gamityMain .fifty .in {
+        padding: 12px 20px 15px 20px;
+        min-height: 120px;
+    }
+    .gamityMain .fifty .image {
+        display: none;
+    }
+    .gamityMain .fifty .button {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 398px) {
+    .gamityMain .fifty .in {
+        min-height: 150px;
+    }
+}
+
+@media (min-width: 343px) and (max-width: 398px) {
+    .gamityMain .fifty .in {
+        min-height: 140px;
+    }
+}
+

@@ -1,0 +1,135 @@
+.live {
+    background: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+.inner {
+    padding: 0 30px;
+    max-width: 1680px;
+    width: 100%;
+    min-width: 320px;
+    position: relative;
+    margin: 0 auto;
+}
+.live h3 {
+    font-size: 24px;
+    line-height: 30px;
+    text-align: left;
+    font-weight: 700;
+    color: #3c4859;
+}
+.live .changeWrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.change {
+    width: 18%;
+    margin: 30px 1% 0 1%;
+    border: 1px dashed #dde0ea;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    padding: 15px;
+}
+.change .icons {
+    vertical-align: middle;
+}
+.change .icons .ix {
+    width: 120px;
+    margin: 0 auto;
+    display: flex;
+}
+.change .icons .x {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+}
+.change .icons img {
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+}
+.change .amount {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #3c4859;
+    margin: 10px 0 0 0;
+}
+.change .date {
+    font-size: 12px;
+    font-weight: 400;
+    color: #9facbd;
+}
+
+
+@media (max-width: 1024px) {
+    .inner {
+        padding: 0 20px;
+    }
+    .change {
+        display: inline-block;
+        width: 30%;
+        margin: 30px 1% 0 1%;
+    }
+}
+
+@media (max-width: 740px) {
+    .change {
+        padding: 10px;
+    }
+    .change .icons .ix {
+        width: 90px;
+        margin: 0 auto;
+    }
+    .change .icons .x {
+        width: 30px;
+        height: 25px;
+        text-align: center;
+    }
+    .change .icons img {
+        height: 25px;
+    }
+    .change .amount {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 5px 0 0 0;
+    }
+    .change .date {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 560px) {
+    .live {
+        background: #fff;
+        padding: 30px 0;
+        text-align: center;
+    }
+    .live h3 {
+        text-align: center;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .change {
+        border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .change {
+        width: 47%;
+        margin: 20px 1% 0 1%;
+    }
+}
+
+@media (max-width: 340px) {
+    .inner {
+        padding: 0 15px;
+    }
+}

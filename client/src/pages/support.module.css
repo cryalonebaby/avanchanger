@@ -1,0 +1,234 @@
+.static {
+    font-size: 16px;
+    line-height: 28px;
+    padding: 40px 0 60px 0;
+    color: #3c4859;
+}
+.inner {
+    padding: 0 30px;
+    max-width: 1680px;
+    width: 100%;
+    min-width: 320px;
+    position: relative;
+    margin: 0 auto;
+}
+.static h1 {
+    font-size: 42px;
+    padding: 10px 0 20px 0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.supportWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.supportL {
+    width: 50%;
+    padding-right: 15px;
+}
+.supportTime {
+    background: #f4f7fa;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+}
+.supportInfo {
+    margin-bottom: 30px;
+    list-style: disc;
+    margin-left: 20px;
+    line-height: 32px;
+}
+.supportSocTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0d151e;
+    margin-bottom: 10px;
+}
+.supportSoc a {
+    text-decoration: none;
+    width: 23%;
+    margin-right: 2%;
+    float: left;
+    border: 1px dashed #dde0ea;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    padding: 15px 10px;
+    color: #0d151e;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+}
+.supportSoc a b {
+    font-weight: 400;
+    text-align: center;
+    font-size: 26px;
+    line-height: 26px;
+    display: block;
+    margin-bottom: 5px;
+}
+.supportSoc a img {
+    height: 24px;
+}
+.supportR {
+    width: 50%;
+    padding-left: 15px;
+    background: #0facf3 no-repeat center bottom;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+.supportForm {
+    padding: 30px 30px 80px 30px;
+    background: #0facf3 no-repeat center bottom;
+    background-size: cover;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    position: relative;
+}
+.supportForm .line {
+    margin-bottom: 15px;
+}
+.supportForm .line .inp, .supportForm .line .textarea {
+    border: 0;
+}
+.supportForm .lineButton {
+    text-align: right;
+}
+.supportForm .lineButton .btn {
+    float: right;
+}
+.textarea {
+    min-height: 120px;
+    border-radius: 15px;
+    padding: 15px 20px;
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid #d6dce7;
+    color: #021627;
+    -webkit-transition: all ease-out .1s;
+    -moz-transition: all ease-out .1s;
+    -ms-transition: all ease-out .1s;
+    -o-transition: all ease-out .1s;
+    transition: all ease-out .1s;
+}
+.inp{
+    height: 46px;
+    padding: 15px 20px;
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid #d6dce7;
+    color: #021627;
+    -webkit-transition: all ease-out .1s;
+    -moz-transition: all ease-out .1s;
+    -ms-transition: all ease-out .1s;
+    -o-transition: all ease-out .1s;
+    transition: all ease-out .1s;
+}
+.btn {
+    color: #fff;
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 40px;
+    font-weight: 700;
+    min-width: 80px;
+    outline: 0;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -webkit-transition: all ease-out .1s;
+    -moz-transition: all ease-out .1s;
+    -ms-transition: all ease-out .1s;
+    -o-transition: all ease-out .1s;
+    transition: all ease-out .1s;
+    background: #2f343b;
+    background-image: -moz-linear-gradient(90deg,#2f343b 0,#304550 100%);
+    background-image: -webkit-linear-gradient(90deg,#2f343b 0,#304550 100%);
+    background-image: -ms-linear-gradient(90deg,#2f343b 0,#304550 100%);
+    box-shadow: 0 3px 8px 0 rgb(103 116 116 / 20%);
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+.supportForm .lineButton .code {
+    float: left;
+    width: 200px;
+}
+
+@media (max-width: 340px) {
+    .inner {
+        padding: 0 15px;
+    }
+
+}
+
+@media (max-width: 560px) {
+    .supportSoc a {
+        width: 48%;
+        margin-right: 2%;
+        margin-bottom: 2%;
+        font-size: 12px;
+    }
+    .supportForm {
+        padding: 20px 20px 10px 20px;
+    }
+    .supportForm .lineButton .btn {
+        float: none;
+    }
+    .supportForm .btn {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .static {
+        font-size: 14px;
+        line-height: 28px;
+        padding: 30px 0 20px 0;
+    }
+    .inner {
+        padding: 0 20px;
+    }
+    .static h1 {
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+    .supportL {
+        float: none;
+        width: 100%;
+        margin-bottom: 80px;
+        padding: 0;
+    }
+    .support-soc-title {
+        text-align: center;
+    }
+    .supportR {
+        float: none;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+
+}

@@ -1,0 +1,98 @@
+.bestchange {
+    background: #0d151e;
+    border-radius: 10px;
+    margin: 20px 0 0 0;
+    padding: 15px 20px 15px 170px;
+    color: #fff;
+    position: relative;
+    font-size: 15px;
+    background: -webkit-linear-gradient(90deg,rgba(15,21,29,.8) 0,rgba(15,21,29,.5) 100%);
+    color: #848f9e;
+    color: #9fa9b5;
+    position: relative;
+    z-index: 9;
+}
+.bestchange h5 {
+    color: #8bbd06;
+    color: #3dd94b;
+    color: #fff;
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+.desc a {
+    color: #0facf3;
+}
+.desc b {
+    font-style: normal;
+    color: #3dd94b;
+}
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 150px;
+    background: #8bbd06;
+    background: #8bbd06;
+    background: linear-gradient(180deg,#8bbd06 0,#70960c 100%);
+    border-radius: 10px 0 0 10px;
+    padding: 15px 15px 0 20px;
+}
+.button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+/* .button .btn {
+    height: 36px;
+    line-height: 34px;
+    padding: 0 20px;
+    font-size: 14px;
+    color: #304550;
+    background: #fff;
+    border: 1px solid #efefef;
+    height: 42px;
+    line-height: 44px;
+    box-shadow: none;
+    text-transform: none;
+    text-decoration: none;
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+} */
+.button .btn {
+    color: #304550;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+    height: 36px;
+    line-height: 34px;
+    padding: 0 20px;
+    font-weight: 700;
+    min-width: 80px;
+    outline: 0;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -webkit-transition: all ease-out .1s;
+    -moz-transition: all ease-out .1s;
+    -ms-transition: all ease-out .1s;
+    -o-transition: all ease-out .1s;
+    transition: all ease-out .1s;
+    background: #fff;
+    box-shadow: 0 3px 8px 0 rgb(103 116 116 / 20%);
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+
+@media (max-width: 860px) {
+    .bestchange {
+        display: none;
+    }
+}

@@ -1,0 +1,113 @@
+.static {
+    font-size: 16px;
+    line-height: 28px;
+    padding: 40px 0 30px 0;
+    color: #3c4859;
+}
+.errorPage {
+    padding: 150px 0;
+}
+.errorPage h1 {
+    font-size: 64px;
+    color: #f46353;
+}
+.static h1 {
+    font-size: 42px;
+    padding: 10px 0 20px 0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.errorPage > div {
+    text-align: center;
+}
+.errorPage span {
+    font-weight: 700;
+    font-size: 18pt;
+}
+.errorPage .buttons {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+.btn {
+    color: #fff;
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 40px;
+    font-weight: 700;
+    min-width: 80px;
+    outline: 0;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -webkit-transition: all ease-out .1s;
+    -moz-transition: all ease-out .1s;
+    -ms-transition: all ease-out .1s;
+    -o-transition: all ease-out .1s;
+    transition: all ease-out .1s;
+    background: #0facf3;
+    background-image: -moz-linear-gradient(90deg,#0facf3 0,#67cffd 100%);
+    background-image: -webkit-linear-gradient(90deg,#0facf3 0,#67cffd 100%);
+    background-image: -ms-linear-gradient(90deg,#0facf3 0,#67cffd 100%);
+    box-shadow: 0 3px 8px 0 rgb(103 116 116 / 20%);
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+.errorPage .buttons .btn {
+    line-height: 43px;
+    height: 42px;
+    box-shadow: none;
+    margin: 0 5px;
+}
+.btn.ghost {
+    color: #0facf3;
+    background: #fff;
+    border: 1px solid #0facf3;
+    height: 42px;
+    line-height: 44px;
+    box-shadow: none;
+    text-transform: none;
+}
+
+
+@media (max-width: 340px) {
+    .inner {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .errorPage {
+        padding: 80px 0;
+    }
+    .errorPage h1 {
+        font-size: 48px;
+    }
+    .errorPage .buttons .btn {
+        margin: 5px;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .static {
+        font-size: 14px;
+        line-height: 28px;
+        padding: 30px 0 20px 0;
+    }
+    .inner {
+        padding: 0 20px;
+    }
+    .static h1 {
+        margin-bottom: 20px;
+    }
+}
