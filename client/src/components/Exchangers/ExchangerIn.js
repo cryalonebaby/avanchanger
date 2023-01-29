@@ -2,9 +2,9 @@ import React from 'react'
 import s from './style.module.css'
 import cn from 'classnames'
 import Dropdown from '../Dropdown/Dropdown'
-import {ReactComponent as Switch} from '../../img/switch.svg'
+import { ReactComponent as Switch } from '../../img/switch.svg'
 import ratioPrice from '../../utils/ratio'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const reserves = {
     'btc': 21.35,
@@ -19,10 +19,17 @@ const reserves = {
     'dash': 897.58,
     'erc20': 491746.6,
     'trc20': 554035.4,
+    'visarub': 3926802,
+    'visausd': 78256,
+    'visaeur': 62833,
+    'alfa': 1444058,
+    'tinkoff': 4135102,
+    'sber': 3780802,
+    'qiwi': 4983005,
 }
 
 
-const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, setSelected, green, changeGreen}) => {
+const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, setSelected, green, changeGreen }) => {
     const reserve = Object.keys(reserves).find(item => selected.take && selected.take.toLowerCase() === item)
 
     let giveItem = filteredApi.length > 1 ? filteredApi.find(item => item.symbol.toLowerCase() === selected.give) : {}
@@ -56,7 +63,7 @@ const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, s
                 </div>
                 <div className={s.in}>
                     <div className={s.exchangeRateChoice}>
-                        <div 
+                        <div
                             className={s.t}
                         >
                             Выберите тип курса
@@ -78,12 +85,12 @@ const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, s
                     />
                     <div className={s.exchangeDir}>
                         Получаете
-                        <div 
+                        <div
                             className={cn(s.exchangeReverseSwitch, s.eas)}
                             data-tooltip='Обратное направление'
                             onClick={swapItems}
                         >
-                            <Switch className={s.reverseSvg}/>
+                            <Switch className={s.reverseSvg} />
                         </div>
                     </div>
                     <Dropdown
@@ -101,26 +108,26 @@ const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, s
                                 Курс
                                 {
                                     priceZero ?
-                                    <b className={s.customCurrencyRate}>
-                                        {reverseRatio}
-                                        <span>{` ${giveItem?.symbol.toUpperCase()} `}</span>
-                                        ~ 1
-                                        <span>{` ${takeItem?.symbol.toUpperCase()}`}</span>
-                                    </b>
-                                    : <b className={s.customCurrencyRate}>
+                                        <b className={s.customCurrencyRate}>
+                                            {reverseRatio}
+                                            <span>{` ${giveItem?.bank ? giveItem?.ticker.toUpperCase() : giveItem?.symbol.toUpperCase()} `}</span>
+                                            ~ 1
+                                            <span>{` ${takeItem?.bank ? takeItem?.ticker.toUpperCase() : takeItem?.symbol.toUpperCase()}`}</span>
+                                        </b>
+                                        : <b className={s.customCurrencyRate}>
                                             1
-                                            <span>{` ${giveItem?.symbol.toUpperCase()} `}</span>
+                                            <span>{` ${giveItem?.bank ? giveItem?.ticker.toUpperCase() : giveItem?.symbol.toUpperCase()} `}</span>
                                             ~ {ratio}
-                                            <span>{` ${takeItem?.symbol.toUpperCase()}`}</span>
+                                            <span>{` ${takeItem?.bank ? takeItem?.ticker.toUpperCase() : takeItem?.symbol.toUpperCase()}`}</span>
                                         </b>
                                 }
-                                
+
                             </div>
                             <div className={s.row}>
                                 Резерв
                                 <b className={s.customCurrencyReserve}>
                                     {reserves[reserve]}
-                                    <span>{` ${selected.take?.toUpperCase()}`}</span>
+                                    <span>{` ${takeItem?.bank ? takeItem?.ticker.toUpperCase() : takeItem?.symbol.toUpperCase()}`}</span>
                                 </b>
                             </div>
                             <div className={s.row}>
@@ -135,18 +142,18 @@ const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, s
                             <h5>Условия для направления</h5>
                             <ul>
                                 <li className={s.termsRateType}>
-                                    Обмен будет инициирован после получения 
+                                    Обмен будет инициирован после получения
                                     <b> 2 подтверждений </b>
                                     транзакции
                                 </li>
                                 <li className={s.termsRateType}>
-                                    Комиссия сервиса 
+                                    Комиссия сервиса
                                     <b> 0.4</b>
                                     %. Обновление биржевого курса на основе&nbsp;
                                     <a href='https://coinmarketcap.com/' target='_blank' rel='noreferrer'>CoinMarketCap</a>
                                 </li>
                                 <li className={s.termsRateType}>
-                                    Курс корректируется каждые  
+                                    Курс корректируется каждые
                                     <b> 5 минут</b>
                                     , подробнее в разделе&nbsp;
                                     <Link to={'/ru/pages/help'} target={'_blank'} rel={'noreferrer'}>помощь</Link>
@@ -157,10 +164,10 @@ const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, s
                                 </li>
                             </ul>
                         </div>
-                    </div> 
-                </div> 
+                    </div>
                 </div>
             </div>
+        </div>
     )
 }
 

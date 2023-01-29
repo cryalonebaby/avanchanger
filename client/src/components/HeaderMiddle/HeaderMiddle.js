@@ -28,7 +28,7 @@ const walletsTemplate = [
         symbol: 'XRP',
         address: '3333',
         image: "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731"
-    }, 
+    },
     {
         name: 'DOGE',
         symbol: 'DOGE',
@@ -37,16 +37,16 @@ const walletsTemplate = [
     }
 ]
 
-const HeaderMiddle = ({popularGive, popularTake}) => {
+const HeaderMiddle = ({ popularGive, popularTake }) => {
     const coins = walletsTemplate
-    const [api, setApi] = useState([]) 
+    const [api, setApi] = useState([])
     const cryptoNames = ['btc', 'eth', 'ltc', 'xlm', 'xtz', 'zec', 'trx', 'xmr', 'doge', 'dash']
     const cryptoUsdt = ['usdt']
     const cryptoNamesAdditional = ['xrp', 'usdp', 'ada', 'dot', 'bnb', 'link', 'bch', 'uni', 'atom', 'miota', 'etc', 'busd', 'zrx', 'waves', 'xvg', 'matic', 'gala', 'mana', 'sand', 'near', 'ton']
 
-    let filteredAdditional = api.length > 1 ? api.filter(item => cryptoNamesAdditional.includes(item.symbol)): []
+    let filteredAdditional = api.length > 1 ? api.filter(item => cryptoNamesAdditional.includes(item.symbol)) : []
 
-    let filteredUsdt = api.length > 1 ? api.filter(item => cryptoUsdt.includes(item.symbol)): []
+    let filteredUsdt = api.length > 1 ? api.filter(item => cryptoUsdt.includes(item.symbol)) : []
     let erc = !!filteredUsdt[0] ? JSON.parse(JSON.stringify(filteredUsdt[0])) : {}
     let trc = !!filteredUsdt[0] ? JSON.parse(JSON.stringify(filteredUsdt[0])) : {}
     erc.name = 'USDT ERC20'
@@ -57,6 +57,74 @@ const HeaderMiddle = ({popularGive, popularTake}) => {
     trc.key = 'trc20'
     trc.symbol = 'trc20'
     trc.id = 'trc20'
+
+    // TODO DEFINE BANK OBJECT
+    const visaRub = {
+        id: 'visarub',
+        symbol: 'visarub',
+        ticker: 'rub',
+        bank: true,
+        name: 'VISA/MasterCard',
+        current_price: 0.014,
+        image: 'https://avanchange.com/uploads/images/payment/cards-small.svg'
+    }
+    const visaUsd = {
+        id: 'visausd',
+        symbol: 'visausd',
+        ticker: 'usd',
+        bank: true,
+        name: 'VISA/MasterCard',
+        current_price: 1.01,
+        image: 'https://avanchange.com/uploads/images/payment/cards-small.svg'
+    }
+    const visaEur = {
+        id: 'visaeur',
+        symbol: 'visaeur',
+        ticker: 'eur',
+        bank: true,
+        name: 'VISA/MasterCard',
+        current_price: 1.02,
+        image: 'https://avanchange.com/uploads/images/payment/cards-small.svg'
+    }
+    const sber = {
+        id: 'sber',
+        symbol: 'sber',
+        ticker: 'rub',
+        bank: true,
+        name: 'Сбербанк',
+        current_price: 0.014,
+        image: 'https://avanchange.com/uploads/images/payment/sberbank-small.svg'
+    }
+    const qiwi = {
+        id: 'qiwi',
+        symbol: 'qiwi',
+        ticker: 'rub',
+        bank: true,
+        name: 'QIWI',
+        current_price: 0.014,
+        image: 'https://avanchange.com/uploads/images/payment/qiwi-small.svg'
+    }
+    const alfa = {
+        id: 'alfa',
+        symbol: 'alfa',
+        ticker: 'rub',
+        bank: true,
+        name: 'Альфа-банк',
+        current_price: 0.014,
+        image: 'https://avanchange.com/uploads/images/payment/alfarub-small.svg'
+    }
+    const tinkoff = {
+        id: 'tinkoff',
+        symbol: 'tinkoff',
+        ticker: 'rub',
+        bank: true,
+        name: 'Тинькофф',
+        current_price: 0.014,
+        image: 'https://avanchange.com/uploads/images/payment/tinkoff-small.svg'
+    }
+
+    const banks = [visaRub, visaUsd, visaEur, sber, qiwi, alfa, tinkoff]
+    // const banks = [visaRub]
 
     const [green, setGreen] = useState({
         fix: false,
@@ -73,40 +141,17 @@ const HeaderMiddle = ({popularGive, popularTake}) => {
         }))
     }
 
-    useEffect(() => {
-        let isCancel = false
-        const getCryptoApi = async () => {
-            try {
-                if(!isCancel) {
-                    const response = await axios.get(coinGeckoApi)
-                    const data = await response.data
-                    setApi(data)
-        
-                    return data
-                }   
-            } catch (e) {
-                console.log(e)
-            }
-        }
-        getCryptoApi()
-        // getCoins()
-
-
-        //Cleanup
-        return () => {isCancel = true}
-        
-    }, [])
-
-
     // coins.forEach(item => cryptoNames.push(item.symbol.toLowerCase()))
 
-    let filteredApi = api.length > 1  ? api.filter(item => cryptoNames.includes(item.symbol)): []
+    let filteredApi = api.length > 1 ? api.filter(item => cryptoNames.includes(item.symbol)) : []
+
     !!(filteredApi.length > 1) && filteredApi.splice(2, 0, trc)
     !!(filteredApi.length > 1) && filteredApi.splice(3, 0, erc)
-    filteredApi = filteredApi.concat(filteredAdditional)
 
-    {/*Up price to 2% */}
-    filteredApi.forEach(el => el.current_price += el.current_price/100 * 1)
+    // TODO ADD BANK CARD
+    !!(filteredApi.length > 1) && filteredApi.splice(4, 0, ...banks)
+
+    filteredApi = filteredApi.concat(filteredAdditional)
 
     const [selected, setSelected] = useState({
         give: 'btc',
@@ -114,21 +159,48 @@ const HeaderMiddle = ({popularGive, popularTake}) => {
     })
 
     useEffect(() => {
-        if(popularGive !== undefined && popularTake !== undefined) {
+        let isCancel = false
+        const getCryptoApi = async () => {
+            try {
+                if (!isCancel) {
+                    const response = await axios.get(coinGeckoApi)
+                    const data = await response.data
+                    setApi(data)
+
+                    return data
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        getCryptoApi()
+        {/*Up price to 2% */ }
+        filteredApi.forEach(el => el.current_price += el.current_price / 100 * 2)
+
+        // getCoins()
+
+
+        //Cleanup
+        return () => { isCancel = true }
+
+    }, [])
+
+    useEffect(() => {
+        if (popularGive !== undefined && popularTake !== undefined) {
             setSelected({
                 give: popularGive,
                 take: popularTake
             })
         }
-        
+
     }, [popularGive, popularTake])
 
     const selectCurrency = (code, give) => {
         const item = filteredApi.find(item => item.symbol === code)
-        if(give) {
+        if (give) {
             let equal = item.symbol === selected.take
-            if(equal) {
-                if(item.symbol === 'btc') {
+            if (equal) {
+                if (item.symbol === 'btc') {
                     setSelected(prev => ({
                         give: item.symbol,
                         take: 'eth'
@@ -147,10 +219,10 @@ const HeaderMiddle = ({popularGive, popularTake}) => {
             }))
             return
         }
-        if(!give) {
+        if (!give) {
             let equal = item.symbol === selected.give
-            if(equal) {
-                if(item.symbol === 'btc') {
+            if (equal) {
+                if (item.symbol === 'btc') {
                     setSelected(prev => ({
                         give: 'eth',
                         take: item.symbol
@@ -168,7 +240,7 @@ const HeaderMiddle = ({popularGive, popularTake}) => {
                 take: item.symbol
             }))
         }
-        
+
 
         // give ? setSelected(prev => ({
         //     take: prev.take,
@@ -195,31 +267,31 @@ const HeaderMiddle = ({popularGive, popularTake}) => {
     return (
         <div className={s.headerMiddle}>
             <div className={s.inner}>
-                <Gamity/>
-                <Bestchanger/>
+                <Gamity />
+                <Bestchanger />
                 {
                     filteredApi.length !== 0 ?
-                    <div className={s.exchange}>
-                        <ExchangerIn
-                            selected={selected}
-                            selectCurrency={selectCurrency}
-                            filteredApi={filteredApi}
-                            walletsTemplate={walletsTemplate}
-                            setSelected={setSelected}
-                            green={green}
-                            changeGreen={changeGreen}
-                        />
-                        <ExchangerOut
-                            selected={selected}
-                            coins={coins}
-                            filteredApi={filteredApi}
-                            green={green}
-                        />
-                        <Telegram/>
-                    </div>
-                    :null
+                        <div className={s.exchange}>
+                            <ExchangerIn
+                                selected={selected}
+                                selectCurrency={selectCurrency}
+                                filteredApi={filteredApi}
+                                walletsTemplate={walletsTemplate}
+                                setSelected={setSelected}
+                                green={green}
+                                changeGreen={changeGreen}
+                            />
+                            <ExchangerOut
+                                selected={selected}
+                                coins={coins}
+                                filteredApi={filteredApi}
+                                green={green}
+                            />
+                            <Telegram />
+                        </div>
+                        : null
                 }
-                
+
             </div>
         </div>
     )

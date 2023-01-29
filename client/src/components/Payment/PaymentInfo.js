@@ -4,7 +4,7 @@ import cn from 'classnames'
 import emailjs from 'emailjs-com'
 const axios = require('axios')
 
-const PaymentInfo = ({ giveName, email, giveSymbol, giveImg, takeName, takeSymbol, takeImg, userAddress, giveAmount, takeAmount, number, ownerAddress, timeH, timeM, timeS, green, qr,  day, month, year, hour, minutes}) => {
+const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, giveImg, takeName, takeSymbol, takeImg, userAddress, giveAmount, takeAmount, number, ownerAddress, timeH, timeM, timeS, green, qr, day, month, year, hour, minutes }) => {
 
     let templateParams = {
         number: `${number}`,
@@ -24,7 +24,7 @@ const PaymentInfo = ({ giveName, email, giveSymbol, giveImg, takeName, takeSymbo
         setPaymentStatus(true)
         setDisabled(true)
         console.log('CLICK');
-        emailjs.send("service_fo7i8yb","template_aoqa05o", templateParams, "T6dl6-4HD1RHqpWsi")
+        emailjs.send("service_fo7i8yb", "template_aoqa05o", templateParams, "T6dl6-4HD1RHqpWsi")
             .then((result) => {
                 window.location.reload()
             }, (error) => {
@@ -47,15 +47,15 @@ const PaymentInfo = ({ giveName, email, giveSymbol, giveImg, takeName, takeSymbo
         let isSend = false
         setDisabled(JSON.parse(window.sessionStorage.getItem(`disabled${number}${hour}${minutes}${day}`)))
         setPaymentStatus(JSON.parse(window.sessionStorage.getItem(`status${number}${hour}${minutes}${day}`)))
-        
-        if(!isSend) {
+
+        if (!isSend) {
             sendInfo()
         }
 
         return () => {
             isSend = true
         }
-        
+
     }, [])
 
     useEffect(() => {
@@ -80,50 +80,50 @@ const PaymentInfo = ({ giveName, email, giveSymbol, giveImg, takeName, takeSymbo
             <h1 className={s.h1}>Обмен №{number} от {fullDay} {month} {year}, {fullHours}:{fullMinutes}</h1>
             <div className={s.paymentGive}>
                 <h3>
-                    <img src={giveImg} alt='giveImg'/>
+                    <img src={giveImg} alt='giveImg' />
                     Отдаете {giveName}
                 </h3>
                 <div className={s.line}>
                     <span>Сумма</span>
-                    <b>{giveAmount} {giveSymbol}</b>
+                    <b>{giveAmount} {giveSymbol.toUpperCase()}</b>
                 </div>
                 <div className={s.line}>
-                    <span>С кошелька</span>
+                    {isGiveBank ? (<span>С карты</span>) : <span>С кошелька</span>}
                     <b> - </b>
                 </div>
             </div>
             <div className={s.paymentTake}>
                 <h3>
-                    <img src={takeImg} alt='takeImg'/>
+                    <img src={takeImg} alt='takeImg' />
                     Получаете {takeName}
                 </h3>
                 <div className={s.line}>
                     <span>Сумма</span>
-                    <b>{takeAmount} {takeSymbol}</b>
+                    <b>{takeAmount} {takeSymbol.toUpperCase()}</b>
                 </div>
                 <div className={s.line}>
-                    <span>На кошелек</span>
+                    {isTakeBank ? (<span>На карту</span>) : <span>На кошелек</span>}
                     <b>{userAddress}</b>
                 </div>
             </div>
             <div className={s.paymentTimer}>
                 <div className={s.status}>
-                    Статус оплаты: 
-                    {!Status ? <b className={s.textBlue}>ожидает оплаты</b> : <b className={s.textGreen}>оплачено</b>}   
+                    Статус оплаты:
+                    {!Status ? <b className={s.textBlue}>ожидает оплаты</b> : <b className={s.textGreen}>оплачено</b>}
                 </div>
                 <div className={s.desc}>
                     Отправьте ровно <b>{giveAmount} {giveSymbol.toUpperCase()} </b>
                     на адрес
-                    <br/>
+                    <br />
                     <b> {ownerAddress}</b>
                 </div>
                 {
                     qr !== '' && qr !== undefined ?
-                    <div className={s.qrcode}>
-                        <img src={qr} alt="QR"/>
-                    </div>
-                    : <br/>
-                }           
+                        <div className={s.qrcode}>
+                            <img src={qr} alt="QR" />
+                        </div>
+                        : <br />
+                }
                 <div className={s.timer}>{H}:{M}:{S}</div>
                 <div className={s.timerInfo}>Осталось времени</div>
 
@@ -134,13 +134,13 @@ const PaymentInfo = ({ giveName, email, giveSymbol, giveImg, takeName, takeSymbo
                 <div className={s.paymentType}>
                     <h5>Тип обмена: {green.best ? <b>Лучший курс</b> : <b>Фиксированный курс</b>}</h5>
                     <div className={s.desc}>
-                        Курс может корректироваться при высоких колебаниях 
+                        Курс может корректироваться при высоких колебаниях
                         <a href="https://coinmarketcap.com/" target="_blank" rel="noreferrer"> рынка</a>
                     </div>
                 </div>
                 <div className={s.mempoolFees}>
                     <div className={s.feesTitle}>
-                        Информация о комиссии сети на 
+                        Информация о комиссии сети на
                         <b> 04 Апр 2022, 21:01</b>
                     </div>
                     <div className={s.clr}></div>

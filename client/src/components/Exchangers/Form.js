@@ -2,7 +2,7 @@ import React from 'react'
 import s from './style.module.css'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
-import {useMessage} from '../../hooks/message.hook'
+import { useMessage } from '../../hooks/message.hook'
 
 const reserves = {
     'btc': 21.35,
@@ -17,6 +17,13 @@ const reserves = {
     'dash': 897.58,
     'erc20': 491746.6,
     'trc20': 554035.4,
+    'visarub': 3926802,
+    'visausd': 78256,
+    'visaeur': 62833,
+    'alfa': 1444058,
+    'tinkoff': 4135102,
+    'sber': 3780802,
+    'qiwi': 4983005,
 }
 
 const examples = {
@@ -32,30 +39,68 @@ const examples = {
     'dash': 'Xwf5i6RTSBGh1zEEMhWEB9KMK',
     'erc20': '0x16E60a51AAeFFEbEB7b69E2',
     'trc20': 'TFR9fP1VDmGGf7pT3f2Ag6YMW',
+    'visarub': '4000 1234 5678 9010',
+    'visausd': '4000 1234 5678 9010',
+    'visaeur': '4000 1234 5678 9010',
+    'alfa': '5211 7866 0000 0000',
+    'tinkoff': '5536 9137 5740 1500',
+    'sber': '4276 8000 5241 2887',
+    'qiwi': '+79057281931',
 }
 
-const Form = ({giveItem, takeItem, form, messages, changeHandler, handleSubmit, handleInputChange, handleOutputChange}) => {
-    const emailValidation = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/
+const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit, handleInputChange, handleOutputChange }) => {
+    const emailValidation = /^[a-z0-9!#$%&'*+=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/
     const reserve = Object.keys(reserves).find(item => takeItem?.symbol.toLowerCase() === item)
     const example = Object.keys(examples).find(item => takeItem?.symbol.toLowerCase() === item)
     const message = useMessage()
 
+    console.log('test', giveItem);
+
+    // CHECK IF BANK GIVE ITEM
+    const isBankGive = giveItem.symbol === 'tinkoff'
+        || giveItem.symbol === 'alfa'
+        || giveItem.symbol === 'visarub'
+        || giveItem.symbol === 'visausd'
+        || giveItem.symbol === 'visaeur'
+        || giveItem.symbol === 'sber'
+        || giveItem.symbol === 'qiwi'
+        ? true
+        : false
+
+    // CHECK IF BANK TAKE ITEM
+    const isBankTake = takeItem.symbol === 'tinkoff'
+        || takeItem.symbol === 'alfa'
+        || takeItem.symbol === 'visarub'
+        || takeItem.symbol === 'visausd'
+        || takeItem.symbol === 'visaeur'
+        || takeItem.symbol === 'sber'
+        || takeItem.symbol === 'qiwi'
+        ? true
+        : false
+
+    const qiwiCard = (item) => {
+        if (item?.symbol === 'qiwi') {
+            return (<i>Номер </i>)
+        }
+        return (<i>Номер карты </i>)
+    }
+
     const errorsHandler = () => {
         const amountInputEmpty = form.give.length === 0 || form.take.length === 0
         const emailInputWrong = form.email.length === 0 || !emailValidation.test(String(form.email).toLowerCase())
-        const userAddressWrong = form.address.length < 25
+        const userAddressWrong = form.address.length < 16
         const reserveOut = form.take >= reserves[reserve]
-        
-        if(amountInputEmpty) {
+
+        if (amountInputEmpty) {
             return 'inputs'
         }
-        if(emailInputWrong) {
+        if (emailInputWrong) {
             return 'email'
         }
-        if(userAddressWrong) {
+        if (userAddressWrong) {
             return 'address'
         }
-        if(reserveOut) {
+        if (reserveOut) {
             return 'reserve'
         }
         return null
@@ -64,7 +109,7 @@ const Form = ({giveItem, takeItem, form, messages, changeHandler, handleSubmit, 
     const toContin = e => {
         e.preventDefault()
         const handlerResult = errorsHandler()
-        if(handlerResult === null) {
+        if (handlerResult === null) {
             handleSubmit(true)
             // ConfE()
         } else {
@@ -79,7 +124,7 @@ const Form = ({giveItem, takeItem, form, messages, changeHandler, handleSubmit, 
     ]
 
     const handleSymb = (event) => {
-        if(invalidChars.includes(event.key)) {
+        if (invalidChars.includes(event.key)) {
             event.preventDefault()
         }
     }
@@ -93,30 +138,50 @@ const Form = ({giveItem, takeItem, form, messages, changeHandler, handleSubmit, 
             <div className={s.lines}>
                 <div className={s.line}>
                     <div className={s.lineInput}>
-                        <input type='number' id='giveCoins' name='give' onChange={handleInputChange} onKeyDown={(e) => handleSymb(e)} onInput={(e) => handleSymbInput(e)}/>
-                        <label htmlFor='giveCoins'>Отдаете <span>{giveItem?.symbol.toUpperCase()}</span></label>
+                        <input type='number' id='giveCoins' name='give' onChange={handleInputChange} onKeyDown={(e) => handleSymb(e)} onInput={(e) => handleSymbInput(e)} />
+                        <label htmlFor='giveCoins'>Отдаете <span>{isBankGive ? giveItem?.ticker.toUpperCase() : giveItem?.symbol.toUpperCase()}</span></label>
                     </div>
                     <div className={s.i}>
                         {/* Min: <span>0.3</span> Max: <span>6.5</span>
                         <br/> */}
-                        С учетом скидки партнера: 
+                        С учетом скидки партнера:
                         <span> 3</span>%
                     </div>
                 </div>
                 <div className={s.line}>
                     <div className={s.lineInput}>
-                        <input type='number' id='takeCoins' name='take' onChange={handleOutputChange} onKeyDown={(e) => handleSymb(e)} onInput={(e) => handleSymbInput(e)}/>
-                        <label htmlFor='takeCoins'>Получаете <span>{takeItem?.symbol.toUpperCase()}</span></label>
+                        <input type='number' id='takeCoins' name='take' onChange={handleOutputChange} onKeyDown={(e) => handleSymb(e)} onInput={(e) => handleSymbInput(e)} />
+                        <label htmlFor='takeCoins'>Получаете <span>{isBankTake ? takeItem?.ticker.toUpperCase() : takeItem?.symbol.toUpperCase()}</span></label>
                     </div>
                     <div className={s.i}>
                         Резерв: <span>{reserves[reserve]}</span>
                     </div>
                 </div>
-                <div className={cn(s.line, s.lineFull)}>
+
+                {
+                    isBankGive && (
+                        <div className={s.line}>
+                            <div className={s.lineInput}>
+                                <input type='text' id='bankCard' name='card' onChange={changeHandler} />
+                                <label htmlFor='bankCard'>
+                                    <i>Номер карты </i>
+                                    <b>{giveItem?.name}</b>
+                                </label>
+                            </div>
+                            <div className={s.i}>
+                                Например
+                                <span> {examples[example]}...</span>
+                            </div>
+                        </div>
+                    )
+                }
+                <div className={cn(s.line, { [s.lineFull]: !isBankGive })}>
                     <div className={s.lineInput}>
-                        <input type='text' id='addressCoins' name='address' onChange={changeHandler}/>
+                        <input type='text' id='addressCoins' name='address' onChange={changeHandler} />
                         <label htmlFor='addressCoins'>
-                            <i>Адрес </i>
+                            {
+                                !isBankTake ? (<i>Адрес </i>) : qiwiCard(takeItem)
+                            }
                             <b>{takeItem?.name}</b>
                         </label>
                     </div>
@@ -125,16 +190,17 @@ const Form = ({giveItem, takeItem, form, messages, changeHandler, handleSubmit, 
                         <span> {examples[example]}...</span>
                     </div>
                 </div>
+
                 <div className={cn(s.line, s.lineEmail)}>
                     <div className={s.lineInput}>
-                        <input type='text' id='emailCoins' name='email' onChange={changeHandler}/>
+                        <input type='text' id='emailCoins' name='email' onChange={changeHandler} />
                         <label htmlFor='emailCoins'>Электронная почта</label>
                     </div>
                     <div className={s.i}>Например john.doe@gmail.com</div>
                 </div>
                 <div className={cn(s.line, s.lineContacts)}>
                     <div className={s.lineInput}>
-                        <input type='text' id='telegramCoins' name='telegram' onChange={changeHandler}/>
+                        <input type='text' id='telegramCoins' name='telegram' onChange={changeHandler} />
                         <label htmlFor='telegramCoins'>Ваш Telegram</label>
                     </div>
                     <div className={s.i}>Например @selld2 (необязательно)</div>
@@ -143,7 +209,7 @@ const Form = ({giveItem, takeItem, form, messages, changeHandler, handleSubmit, 
             <div className={s.lineBreak}></div>
             <div className={s.exchangeRightF}>
                 <div className={s.terms}>
-                    Нажимая кнопку <b> "Обменять" </b> вы подтверждаете свое согласие с 
+                    Нажимая кнопку <b> "Обменять" </b> вы подтверждаете свое согласие с
                     <Link to={'/ru/pages/terms'} target={'_blank'} rel={'noreferrer'}> Правилами предоставления услуг</Link>
                 </div>
                 <div className={s.button}>
