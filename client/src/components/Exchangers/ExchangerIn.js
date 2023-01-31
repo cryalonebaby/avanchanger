@@ -29,7 +29,7 @@ const reserves = {
 }
 
 
-const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, setSelected, green, changeGreen }) => {
+const ExchangerIn = ({ filteredApi, selected, selectCurrency, setSelected, green, changeGreen }) => {
     const reserve = Object.keys(reserves).find(item => selected.take && selected.take.toLowerCase() === item)
 
     let giveItem = filteredApi.length > 1 ? filteredApi.find(item => item.symbol.toLowerCase() === selected.give) : {}
@@ -81,7 +81,6 @@ const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, s
                         takeItem={takeItem}
                         give={true}
                         filteredApi={filteredApi}
-                        walletsTemplate={walletsTemplate}
                     />
                     <div className={s.exchangeDir}>
                         Получаете
@@ -100,7 +99,6 @@ const ExchangerIn = ({ filteredApi, walletsTemplate, selected, selectCurrency, s
                         takeItem={takeItem}
                         give={false}
                         filteredApi={filteredApi}
-                        walletsTemplate={walletsTemplate}
                     />
                     <div className={s.exchangeRate}>
                         <div className={s.rate}>

@@ -7,32 +7,9 @@ import ratioPrice from '../../utils/ratio'
 import { AuthContext } from "../../context/AuthContext"
 
 const Confirmation = ({ form, giveItem, takeItem, handleSubmit, clearForm, ownerAddress, green, qr }) => {
-    //Test
-    // console.log('form', form);
-    // console.log('giveItem', giveItem);
-    // console.log('takeItem', takeItem);
-    // console.log('ownerAddress', ownerAddress);
-    // console.log('green', green);
-    // console.log('qr', qr === null);
 
     const auth = useContext(AuthContext)
 
-    // const date = new Date(Date.now()).toLocaleString('ru', {
-    //     year: 'numeric',
-    //     month: 'short',
-    //     day: 'numeric',
-    //     hour: 'numeric',
-    //     minute: 'numeric'
-    // })
-    // const dateArray = date.split(' ')
-    // const times = dateArray[4].split(':')
-    // const day = dateArray[0]
-    // const month = dateArray[1].slice(0,1).toUpperCase() + dateArray[1].slice(1, 3)
-    // const year = dateArray[2]
-    // const hour = times[0]
-    // const minutes = times[1]
-
-    //TEST
     let dateObj = new Date(Date.now())
 
     let fullYear = dateObj.getFullYear()
@@ -63,10 +40,12 @@ const Confirmation = ({ form, giveItem, takeItem, handleSubmit, clearForm, owner
     const giveImg = giveItem.image
     const giveSymbol = giveItem.bank ? giveItem.ticker : giveItem.symbol
     const isGiveBank = giveItem.bank ? true : false
+    const giveTicker = giveItem.symbol
     const takeName = takeItem.name
     const takeImg = takeItem.image
     const takeSymbol = takeItem.bank ? takeItem.ticker : takeItem.symbol
     const isTakeBank = takeItem.bank ? true : false
+    const takeTicker = takeItem.symbol
 
     const currDate = Date.parse(new Date()) + 1200000
 
@@ -126,11 +105,14 @@ const Confirmation = ({ form, giveItem, takeItem, handleSubmit, clearForm, owner
                     hour: fullHours,
                     minutes: fullMinutes,
                     userAddress: form.address,
+                    userCard: form.card,
                     currDate: currDate,
                     green: green,
                     qr: qr,
                     isGiveBank: isGiveBank,
-                    isTakeBank: isTakeBank
+                    isTakeBank: isTakeBank,
+                    giveTicker: giveTicker,
+                    takeTicker: takeTicker
                     // paymentStatus: paymentStatus,
                     // setPaymentStatus: handleStatus,
                     // disabled: disabled,

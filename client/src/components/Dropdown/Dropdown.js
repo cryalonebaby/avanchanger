@@ -9,7 +9,7 @@ import { RiArrowDropUpLine } from 'react-icons/ri'
 const banksName = ['tinkoff', 'alfa', 'qiwi', 'sber', 'visaeur', 'visausd', 'visarub']
 const cryptoNames = ['btc', 'eth', 'ltc', 'xlm', 'xtz', 'zec', 'trx', 'xmr', 'doge', 'dash', 'erc20', 'trc20', ...banksName]
 
-const Dropdown = ({ selected, selectCurrency, give, filteredApi, giveItem, takeItem }) => {
+const Dropdown = ({ selectCurrency, give, filteredApi, giveItem, takeItem }) => {
     const List = filteredApi
 
     const Selected = give ? giveItem : takeItem

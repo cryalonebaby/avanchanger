@@ -51,10 +51,11 @@ const examples = {
 const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit, handleInputChange, handleOutputChange }) => {
     const emailValidation = /^[a-z0-9!#$%&'*+=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/
     const reserve = Object.keys(reserves).find(item => takeItem?.symbol.toLowerCase() === item)
+    const giveExample = Object.keys(examples).find(item => giveItem?.symbol.toLowerCase() === item)
     const example = Object.keys(examples).find(item => takeItem?.symbol.toLowerCase() === item)
     const message = useMessage()
 
-    console.log('test', giveItem);
+    // console.log(giveItem.current_price, takeItem.current_price);
 
     // CHECK IF BANK GIVE ITEM
     const isBankGive = giveItem.symbol === 'tinkoff'
@@ -88,7 +89,7 @@ const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit,
     const errorsHandler = () => {
         const amountInputEmpty = form.give.length === 0 || form.take.length === 0
         const emailInputWrong = form.email.length === 0 || !emailValidation.test(String(form.email).toLowerCase())
-        const userAddressWrong = form.address.length < 16
+        const userAddressWrong = form.address.length < 9 && form.card.length < 9
         const reserveOut = form.take >= reserves[reserve]
 
         if (amountInputEmpty) {
@@ -170,14 +171,14 @@ const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit,
                             </div>
                             <div className={s.i}>
                                 Например
-                                <span> {examples[example]}...</span>
+                                <span> {examples[giveExample]}...</span>
                             </div>
                         </div>
                     )
                 }
                 <div className={cn(s.line, { [s.lineFull]: !isBankGive })}>
                     <div className={s.lineInput}>
-                        <input type='text' id='addressCoins' name='address' onChange={changeHandler} />
+                        <input type='text' id='addressCoins' name={!isBankTake ? 'address' : 'card'} onChange={changeHandler} />
                         <label htmlFor='addressCoins'>
                             {
                                 !isBankTake ? (<i>Адрес </i>) : qiwiCard(takeItem)

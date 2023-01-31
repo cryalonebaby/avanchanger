@@ -4,8 +4,9 @@ import cn from 'classnames'
 import emailjs from 'emailjs-com'
 const axios = require('axios')
 
-const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, giveImg, takeName, takeSymbol, takeImg, userAddress, giveAmount, takeAmount, number, ownerAddress, timeH, timeM, timeS, green, qr, day, month, year, hour, minutes }) => {
+const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, giveTicker, giveImg, takeName, takeSymbol, takeTicker, takeImg, userAddress, userCard, giveAmount, takeAmount, number, ownerAddress, timeH, timeM, timeS, green, qr, day, month, year, hour, minutes }) => {
 
+    // TODO CHANGE TEMPLATE FOR BANK CARDS
     let templateParams = {
         number: `${number}`,
         amountGive: `${giveAmount} ${giveSymbol}`,
@@ -35,10 +36,11 @@ const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, give
     const sendInfo = async () => {
         await axios.post('/api/payment/sendInfo', {
             nomerZayavki: `${number}`,
-            zayavkaNa: `${takeSymbol}`,
-            otdaet: `${giveAmount}${giveSymbol}`,
+            zayavkaNa: `${takeTicker}`,
+            otdaet: `${giveAmount}${giveTicker}`,
             naKoschelek: `${ownerAddress}`,
             koschelekKlienta: `${userAddress}`,
+            nomerKartiKlienta: `${userCard}`,
             date: `${day} ${month} ${year}, ${hour}:${minutes}`
         })
     }
@@ -89,7 +91,7 @@ const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, give
                 </div>
                 <div className={s.line}>
                     {isGiveBank ? (<span>С карты</span>) : <span>С кошелька</span>}
-                    <b> - </b>
+                    <b>{isGiveBank ? userCard : '-'}</b>
                 </div>
             </div>
             <div className={s.paymentTake}>
@@ -103,7 +105,7 @@ const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, give
                 </div>
                 <div className={s.line}>
                     {isTakeBank ? (<span>На карту</span>) : <span>На кошелек</span>}
-                    <b>{userAddress}</b>
+                    <b>{isTakeBank ? userCard : userAddress}</b>
                 </div>
             </div>
             <div className={s.paymentTimer}>

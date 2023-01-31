@@ -10,7 +10,7 @@ import s from './payment.module.css'
 
 const PaymentPage = () => {
     const location = useLocation()
-    const { isGiveBank, isTakeBank, giveName, giveSymbol, email, giveImg, takeName, takeSymbol, takeImg, userAddress, giveAmount, takeAmount, number, ownerAddress, currDate, green, qr, day, month, year, hour, minutes } = location.state || {}
+    const { isGiveBank, isTakeBank, giveName, giveSymbol, giveTicker, email, giveImg, takeName, takeSymbol, takeTicker, takeImg, userAddress, userCard, giveAmount, takeAmount, number, ownerAddress, currDate, green, qr, day, month, year, hour, minutes } = location.state || {}
 
     const auth = useContext(AuthContext)
 
@@ -37,9 +37,12 @@ const PaymentPage = () => {
                         takeName={takeName}
                         giveSymbol={giveSymbol}
                         takeSymbol={takeSymbol}
+                        giveTicker={giveTicker}
+                        takeTicker={takeTicker}
                         giveImg={giveImg}
                         takeImg={takeImg}
                         userAddress={userAddress}
+                        userCard={userCard}
                         giveAmount={giveAmount}
                         takeAmount={takeAmount}
                         number={number}

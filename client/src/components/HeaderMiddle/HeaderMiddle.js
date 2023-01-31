@@ -10,35 +10,7 @@ const axios = require('axios')
 
 const coinGeckoApi = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
 
-const walletsTemplate = [
-    {
-        name: 'Bitcoin',
-        symbol: 'BTC',
-        address: '1111',
-        image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
-    },
-    {
-        name: 'Ethereum',
-        symbol: 'ETH',
-        address: '2222',
-        image: "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880"
-    },
-    {
-        name: 'XRP',
-        symbol: 'XRP',
-        address: '3333',
-        image: "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731"
-    },
-    {
-        name: 'DOGE',
-        symbol: 'DOGE',
-        address: '4444',
-        image: "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731"
-    }
-]
-
 const HeaderMiddle = ({ popularGive, popularTake }) => {
-    const coins = walletsTemplate
     const [api, setApi] = useState([])
     const cryptoNames = ['btc', 'eth', 'ltc', 'xlm', 'xtz', 'zec', 'trx', 'xmr', 'doge', 'dash']
     const cryptoUsdt = ['usdt']
@@ -58,7 +30,6 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
     trc.symbol = 'trc20'
     trc.id = 'trc20'
 
-    // TODO DEFINE BANK OBJECT
     const visaRub = {
         id: 'visarub',
         symbol: 'visarub',
@@ -124,7 +95,6 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
     }
 
     const banks = [visaRub, visaUsd, visaEur, sber, qiwi, alfa, tinkoff]
-    // const banks = [visaRub]
 
     const [green, setGreen] = useState({
         fix: false,
@@ -141,17 +111,17 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
         }))
     }
 
-    // coins.forEach(item => cryptoNames.push(item.symbol.toLowerCase()))
 
     let filteredApi = api.length > 1 ? api.filter(item => cryptoNames.includes(item.symbol)) : []
 
     !!(filteredApi.length > 1) && filteredApi.splice(2, 0, trc)
     !!(filteredApi.length > 1) && filteredApi.splice(3, 0, erc)
 
-    // TODO ADD BANK CARD
     !!(filteredApi.length > 1) && filteredApi.splice(4, 0, ...banks)
 
     filteredApi = filteredApi.concat(filteredAdditional)
+
+    const [percent, setPercent] = useState(0)
 
     const [selected, setSelected] = useState({
         give: 'btc',
@@ -173,17 +143,35 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
                 console.log(e)
             }
         }
+        const getPercent = async () => {
+            try {
+                if (!isCancel) {
+                    const response = await axios.get('/api/payment/percent')
+                    const data = await response.data
+
+                    const percentData = Number.isInteger(data[0].amount) ? data[0].amount : 2
+                    setPercent(percentData)
+
+                    return percent
+
+
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
         getCryptoApi()
-        {/*Up price to 2% */ }
-        filteredApi.forEach(el => el.current_price += el.current_price / 100 * 2)
-
-        // getCoins()
-
+        getPercent()
 
         //Cleanup
         return () => { isCancel = true }
 
     }, [])
+
+    useEffect(() => {
+        filteredApi.forEach(el => el.current_price += (el.current_price / 100 * percent))
+        console.log(filteredApi);
+    }, [percent])
 
     useEffect(() => {
         if (popularGive !== undefined && popularTake !== undefined) {
@@ -197,8 +185,12 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
 
     const selectCurrency = (code, give) => {
         const item = filteredApi.find(item => item.symbol === code)
+        const giveItem = filteredApi.find(item => item.symbol === selected.give)
+        const takeItem = filteredApi.find(item => item.symbol === selected.take)
+
         if (give) {
             let equal = item.symbol === selected.take
+                || (item.bank && takeItem.bank)
             if (equal) {
                 if (item.symbol === 'btc') {
                     setSelected(prev => ({
@@ -221,6 +213,7 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
         }
         if (!give) {
             let equal = item.symbol === selected.give
+                || (item.bank && giveItem.bank)
             if (equal) {
                 if (item.symbol === 'btc') {
                     setSelected(prev => ({
@@ -240,29 +233,7 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
                 take: item.symbol
             }))
         }
-
-
-        // give ? setSelected(prev => ({
-        //     take: prev.take,
-        //     give: item.symbol
-        // }))
-        // : setSelected(prev => ({
-        //     give: prev.give,
-        //     take: item.symbol
-        // }))
     }
-
-    // const sameChange = () => {
-    //     setSelected(prev => ({
-    //         take: prev.take,
-    //         give: coins[0]
-    //     }))
-    // }
-
-    // useEffect(() => {
-    //     console.log('newItem from header middle', selected.give)
-    //     sameChange()       
-    // })
 
     return (
         <div className={s.headerMiddle}>
@@ -276,14 +247,12 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
                                 selected={selected}
                                 selectCurrency={selectCurrency}
                                 filteredApi={filteredApi}
-                                walletsTemplate={walletsTemplate}
                                 setSelected={setSelected}
                                 green={green}
                                 changeGreen={changeGreen}
                             />
                             <ExchangerOut
                                 selected={selected}
-                                coins={coins}
                                 filteredApi={filteredApi}
                                 green={green}
                             />

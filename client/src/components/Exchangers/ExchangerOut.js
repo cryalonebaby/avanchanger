@@ -21,17 +21,14 @@ const walletsTemplate = [
     { symbol: 'dash', address: 'XwMLJY46qpCyvKfbKv2C1qzXeWfMc3axYa' },
     { symbol: 'erc20', address: '0x0b5b03c668c6e2Ebd0Db993B947C8E57c878C198' },
     { symbol: 'trc20', address: 'TXfUhqf9s6PsfEnXuFyxitN162DwYhr242' },
-    { symbol: 'usd', address: '0' },
-    { symbol: 'rub', address: '00' },
-    { symbol: 'eur', address: '000' },
 
-    { symbol: 'visarub', address: '111' },
-    { symbol: 'visausd', address: '222' },
-    { symbol: 'visaeur', address: '333' },
-    { symbol: 'sber', address: '444' },
-    { symbol: 'alfa', address: '555' },
-    { symbol: 'tinkoff', address: '666' },
-    { symbol: 'qiwi', address: '777' },
+    // { symbol: 'visarub', address: '111' },
+    // { symbol: 'visausd', address: '222' },
+    // { symbol: 'visaeur', address: '333' },
+    // { symbol: 'sber', address: '444' },
+    // { symbol: 'alfa', address: '555' },
+    // { symbol: 'tinkoff', address: '666' },
+    // { symbol: 'qiwi', address: '777' },
 ]
 
 const ExchangerOut = ({ selected, filteredApi, green }) => {
@@ -86,7 +83,10 @@ const ExchangerOut = ({ selected, filteredApi, green }) => {
 
     const finalWallet = wallet === '' ? currWalletTemp.address : wallet
 
-    let AMOUNT = ratioPrice(giveItem?.current_price, takeItem?.current_price)
+    const isGiveBtcAndRub = (giveItem.symbol === 'btc' && takeItem.ticker === 'rub')
+    const isTakeBtcAndRub = (takeItem.symbol === 'btc' && giveItem.ticker === 'rub')
+
+    let AMOUNT = ratioPrice(giveItem?.current_price, takeItem?.current_price, isGiveBtcAndRub, isTakeBtcAndRub)
 
     const messages = {
         inputs: 'Введите количество монет для отправки и получения',
@@ -111,14 +111,20 @@ const ExchangerOut = ({ selected, filteredApi, green }) => {
     }
 
     const calculateTakeAmount = (input, amount) => {
-        const a = input * amount
+        let a = input * amount
+        if (isTakeBtcAndRub) {
+            a = input / amount
+        }
         if (a > 1) return a.toFixed(3)
         if (a === 0) return a.toFixed(0)
         return a.toFixed(7)
     }
 
     const calculateGiveAmount = (output, amount) => {
-        const a = output / amount
+        let a = output / amount
+        if (isTakeBtcAndRub) {
+            a = output * amount
+        }
         if (a > 1) return a.toFixed(3)
         if (a === 0) return a.toFixed(1)
         return a.toFixed(7)

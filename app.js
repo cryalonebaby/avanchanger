@@ -10,13 +10,14 @@ const expressAdminBro = require('@admin-bro/express')
 const Wallet = require('./models/Wallet')
 const Payment = require('./models/Payment')
 const User = require('./models/User')
+const Percent = require('./models/Percent')
 
 const app = express()
 
 //Admin Bro
 AdminBro.registerAdapter(mongooseAdminBro)
 const AdminBroOptions = {
-    resources: [Wallet, Payment, User],
+    resources: [Wallet, Payment, User, Percent],
     rootPath: '/admin/crypto/123123'
 }
 
@@ -33,10 +34,10 @@ app.use('/api/payment', require('./routes/payment.routes'))
 
 const PORT = process.env.PORT || 5000
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 
-    app.use('*', (req,res) => {
+    app.use('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
 }
