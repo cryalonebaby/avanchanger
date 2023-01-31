@@ -143,7 +143,7 @@ const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, give
                 <div className={s.mempoolFees}>
                     <div className={s.feesTitle}>
                         Информация о комиссии сети на
-                        <b> 04 Апр 2022, 21:01</b>
+                        <b> 04 Апр 2023, 21:01</b>
                     </div>
                     <div className={s.clr}></div>
                     <div className={s.feeWrapper}>
