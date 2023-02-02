@@ -9,9 +9,9 @@ const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, give
     // TODO CHANGE TEMPLATE FOR BANK CARDS
     let templateParams = {
         number: `${number}`,
-        amountGive: `${giveAmount} ${giveSymbol}`,
-        amountTake: `${takeAmount} ${takeSymbol}`,
-        wallet: `${userAddress}`,
+        amountGive: `${giveAmount} ${giveSymbol.toUpperCase()}`,
+        amountTake: `${takeAmount} ${takeSymbol.toUpperCase()}`,
+        wallet: `${isTakeBank ? userCard : userAddress}`,
         date: `${day} ${month} ${year}, ${hour}:${minutes}`,
         email_to: `${email}`,
     }
@@ -26,7 +26,7 @@ const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, give
 
         setDisabled(true)
         console.log('CLICK');
-        emailjs.send("service_fo7i8yb", "template_aoqa05o", templateParams, "T6dl6-4HD1RHqpWsi")
+        emailjs.send("service_w2xyuet", "template_mxoc08y", templateParams, "TzvSO7jBl1xFw3x1I")
             .then((result) => {
                 window.location.reload()
             }, (error) => {
