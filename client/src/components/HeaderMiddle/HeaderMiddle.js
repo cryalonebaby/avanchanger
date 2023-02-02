@@ -186,7 +186,6 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
         for (let i = 0; i < wallets.length; i++) {
             const symbol = wallets[i]?.symbol.toLowerCase()
             const percent = wallets[i]?.percent ? wallets[i]?.percent : 0
-            console.log(symbol, percent);
             for (let j = 0; j < filteredApi.length; j++) {
                 const currItem = filteredApi[j]
                 if (currItem.symbol === symbol) {

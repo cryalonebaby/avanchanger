@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import s from './style.module.css'
 import Navigation from './Navigation'
 import MobileNavigation from './MobileNavigation'
-import {useState} from 'react'
-import {ReactComponent as LogoWhite} from '../../img/logo.svg'
+import { useState } from 'react'
+import { ReactComponent as LogoWhite } from '../../img/logo.svg'
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
@@ -18,15 +18,15 @@ const Navbar = () => {
                 <div className={s.logo}>
                     <Link to={'/ru/'}>
                         {/* <img src={Logo} alt='Logo'/> */}
-                        <LogoWhite id='logoWhite'/>
+                        <LogoWhite id='logoWhite' />
                     </Link>
                 </div>
-                <Navigation toggleNav={toggleNav}/>
-                <MobileNavigation open={open} toggleNav={toggleNav}/>
+                <Navigation toggleNav={toggleNav} />
+                <MobileNavigation open={open} toggleNav={toggleNav} />
             </div>
         </div>
 
-        
+
     )
 }
 
