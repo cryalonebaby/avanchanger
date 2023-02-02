@@ -27,7 +27,7 @@ const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, give
         setDisabled(true)
         emailjs.send("service_w2xyuet", "template_mxoc08y", templateParams, "TzvSO7jBl1xFw3x1I")
             .then((result) => {
-                window.location.reload()
+                // window.location.reload()
             }, (error) => {
                 console.log(error.text);
             })

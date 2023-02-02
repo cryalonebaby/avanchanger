@@ -25,10 +25,10 @@ const SupportPage = () => {
                                 <b><FaTelegramPlane size={25} color='#0facf3' /></b>
                                 avanchange
                             </a>
-                            {/* <a href="https://www.instagram.com/avanchange/" target="_blank" rel="noreferrer" className={s.eas}>
-                                <b><FaInstagram size={25} color='#bc2a8d'/></b>
+                            <a href="https://www.instagram.com/avanchange/" target="_blank" rel="noreferrer" className={s.eas}>
+                                <b><FaInstagram size={25} color='#bc2a8d' /></b>
                                 avanchange
-                            </a> */}
+                            </a>
                         </div>
                     </div>
                     <div className={s.supportR}>
