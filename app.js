@@ -10,7 +10,6 @@ const expressAdminBro = require('@admin-bro/express')
 const Wallet = require('./models/Wallet')
 const Payment = require('./models/Payment')
 const User = require('./models/User')
-const Percent = require('./models/Percent')
 
 const app = express()
 
