@@ -9,18 +9,18 @@ import { ErrorFallback } from '../ErrorFallback'
 const axios = require('axios')
 
 const walletsTemplate = [
-    { symbol: 'btc', address: 'bc1qjsccfwj0v34qq9jxftsy8s384w9ur7xgejyc08' },
-    { symbol: 'eth', address: '0x5Ff7204C015c429c5E9a689e1D9AD69DC78968f2' },
-    { symbol: 'ltc', address: 'Lhm7cVF89hmcMUM6xqiWbrjsiUQvN5mrnK' },
-    { symbol: 'xtz', address: 'tz1PQqoFb5ZFQf4ojRmz7ooaTLzv4mdwjFAM' },
-    { symbol: 'zec', address: 't1fRzGtyW8zzPAjU5g4YTpLVCKasfkYNUv6' },
-    { symbol: 'trx', address: 'TUiqogRTZSezgpHr5AQ5yjS72MKgXPVbZq' },
-    { symbol: 'xlm', address: 'GD2VRBHZDIDMMEN56NF5FK5EDHABVOCLRZKPV5O2XIWPA2ZCSLQK5CTZ' },
-    { symbol: 'xmr', address: '43VfByAcMnZFvt4tCeakrKFGVSh3iHBxAVnvonFFZZ7Aat3fdRwZreRF1hpgrMHEkAHMo4Y8eeRUgWhmAxSosaSUNSCLqzM' },
-    { symbol: 'doge', address: 'D6aMpzUKrbtA5ze28tvtddLNr9xZm5KWTg' },
-    { symbol: 'dash', address: 'XwMLJY46qpCyvKfbKv2C1qzXeWfMc3axYa' },
-    { symbol: 'erc20', address: '0x0b5b03c668c6e2Ebd0Db993B947C8E57c878C198' },
-    { symbol: 'trc20', address: 'TXfUhqf9s6PsfEnXuFyxitN162DwYhr242' },
+    // { symbol: 'btc', address: 'bc1qjsccfwj0v34qq9jxftsy8s384w9ur7xgejyc08' },
+    // { symbol: 'eth', address: '0x5Ff7204C015c429c5E9a689e1D9AD69DC78968f2' },
+    // { symbol: 'ltc', address: 'Lhm7cVF89hmcMUM6xqiWbrjsiUQvN5mrnK' },
+    // { symbol: 'xtz', address: 'tz1PQqoFb5ZFQf4ojRmz7ooaTLzv4mdwjFAM' },
+    // { symbol: 'zec', address: 't1fRzGtyW8zzPAjU5g4YTpLVCKasfkYNUv6' },
+    // { symbol: 'trx', address: 'TUiqogRTZSezgpHr5AQ5yjS72MKgXPVbZq' },
+    // { symbol: 'xlm', address: 'GD2VRBHZDIDMMEN56NF5FK5EDHABVOCLRZKPV5O2XIWPA2ZCSLQK5CTZ' },
+    // { symbol: 'xmr', address: '43VfByAcMnZFvt4tCeakrKFGVSh3iHBxAVnvonFFZZ7Aat3fdRwZreRF1hpgrMHEkAHMo4Y8eeRUgWhmAxSosaSUNSCLqzM' },
+    // { symbol: 'doge', address: 'D6aMpzUKrbtA5ze28tvtddLNr9xZm5KWTg' },
+    // { symbol: 'dash', address: 'XwMLJY46qpCyvKfbKv2C1qzXeWfMc3axYa' },
+    // { symbol: 'erc20', address: '0x0b5b03c668c6e2Ebd0Db993B947C8E57c878C198' },
+    // { symbol: 'trc20', address: 'TXfUhqf9s6PsfEnXuFyxitN162DwYhr242' },
 
     // { symbol: 'visarub', address: '111' },
     // { symbol: 'visausd', address: '222' },
@@ -81,7 +81,7 @@ const ExchangerOut = ({ selected, filteredApi, green }) => {
         }
     }, [giveItem?.symbol])
 
-    const finalWallet = wallet === '' ? currWalletTemp.address : wallet
+    const finalWallet = wallet === '' ? currWalletTemp?.address : wallet
 
     const isGiveBtcAndRub = (giveItem.symbol === 'btc' && takeItem.ticker === 'rub')
     const isTakeBtcAndRub = (takeItem.symbol === 'btc' && giveItem.ticker === 'rub')
