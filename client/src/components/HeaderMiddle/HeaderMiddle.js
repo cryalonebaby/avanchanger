@@ -10,8 +10,81 @@ const axios = require('axios')
 
 const coinGeckoApi = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
 
+const visaRub = {
+    id: 'visarub',
+    symbol: 'visarub',
+    ticker: 'rub',
+    bank: true,
+    name: 'VISA/MasterCard',
+    current_price: 0.014,
+    image: 'https://avanchange.com/uploads/images/payment/cards-small.svg'
+}
+const visaUsd = {
+    id: 'visausd',
+    symbol: 'visausd',
+    ticker: 'usd',
+    bank: true,
+    name: 'VISA/MasterCard',
+    current_price: 1.01,
+    image: 'https://avanchange.com/uploads/images/payment/cards-small.svg'
+}
+const visaEur = {
+    id: 'visaeur',
+    symbol: 'visaeur',
+    ticker: 'eur',
+    bank: true,
+    name: 'VISA/MasterCard',
+    current_price: 1.02,
+    image: 'https://avanchange.com/uploads/images/payment/cards-small.svg'
+}
+const sber = {
+    id: 'sber',
+    symbol: 'sber',
+    ticker: 'rub',
+    bank: true,
+    name: 'Сбербанк',
+    current_price: 0.014,
+    image: 'https://avanchange.com/uploads/images/payment/sberbank-small.svg'
+}
+const qiwi = {
+    id: 'qiwi',
+    symbol: 'qiwi',
+    ticker: 'rub',
+    bank: true,
+    name: 'QIWI',
+    current_price: 0.014,
+    image: 'https://avanchange.com/uploads/images/payment/qiwi-small.svg'
+}
+const alfa = {
+    id: 'alfa',
+    symbol: 'alfa',
+    ticker: 'rub',
+    bank: true,
+    name: 'Альфа-банк',
+    current_price: 0.014,
+    image: 'https://avanchange.com/uploads/images/payment/alfarub-small.svg'
+}
+const tinkoff = {
+    id: 'tinkoff',
+    symbol: 'tinkoff',
+    ticker: 'rub',
+    bank: true,
+    name: 'Тинькофф',
+    current_price: 0.014,
+    image: 'https://avanchange.com/uploads/images/payment/tinkoff-small.svg'
+}
+
+const banks = [visaRub, visaUsd, visaEur, sber, qiwi, alfa, tinkoff]
+
 const HeaderMiddle = ({ popularGive, popularTake }) => {
     const [api, setApi] = useState([])
+    const [wallets, setWallets] = useState([])
+    const [selected, setSelected] = useState({
+        give: 'btc',
+        take: 'eth'
+    })
+    const [newCoins, setNewCoins] = useState([])
+
     const cryptoNames = ['btc', 'eth', 'ltc', 'xlm', 'xtz', 'zec', 'trx', 'xmr', 'doge', 'dash']
     const cryptoUsdt = ['usdt']
     const cryptoNamesAdditional = ['xrp', 'usdp', 'ada', 'dot', 'bnb', 'link', 'bch', 'uni', 'atom', 'miota', 'etc', 'busd', 'zrx', 'waves', 'xvg', 'matic', 'gala', 'mana', 'sand', 'near', 'ton']
@@ -30,72 +103,6 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
     trc.symbol = 'trc20'
     trc.id = 'trc20'
 
-    const visaRub = {
-        id: 'visarub',
-        symbol: 'visarub',
-        ticker: 'rub',
-        bank: true,
-        name: 'VISA/MasterCard',
-        current_price: 0.014,
-        image: 'https://avanchange.com/uploads/images/payment/cards-small.svg'
-    }
-    const visaUsd = {
-        id: 'visausd',
-        symbol: 'visausd',
-        ticker: 'usd',
-        bank: true,
-        name: 'VISA/MasterCard',
-        current_price: 1.01,
-        image: 'https://avanchange.com/uploads/images/payment/cards-small.svg'
-    }
-    const visaEur = {
-        id: 'visaeur',
-        symbol: 'visaeur',
-        ticker: 'eur',
-        bank: true,
-        name: 'VISA/MasterCard',
-        current_price: 1.02,
-        image: 'https://avanchange.com/uploads/images/payment/cards-small.svg'
-    }
-    const sber = {
-        id: 'sber',
-        symbol: 'sber',
-        ticker: 'rub',
-        bank: true,
-        name: 'Сбербанк',
-        current_price: 0.014,
-        image: 'https://avanchange.com/uploads/images/payment/sberbank-small.svg'
-    }
-    const qiwi = {
-        id: 'qiwi',
-        symbol: 'qiwi',
-        ticker: 'rub',
-        bank: true,
-        name: 'QIWI',
-        current_price: 0.014,
-        image: 'https://avanchange.com/uploads/images/payment/qiwi-small.svg'
-    }
-    const alfa = {
-        id: 'alfa',
-        symbol: 'alfa',
-        ticker: 'rub',
-        bank: true,
-        name: 'Альфа-банк',
-        current_price: 0.014,
-        image: 'https://avanchange.com/uploads/images/payment/alfarub-small.svg'
-    }
-    const tinkoff = {
-        id: 'tinkoff',
-        symbol: 'tinkoff',
-        ticker: 'rub',
-        bank: true,
-        name: 'Тинькофф',
-        current_price: 0.014,
-        image: 'https://avanchange.com/uploads/images/payment/tinkoff-small.svg'
-    }
-
-    const banks = [visaRub, visaUsd, visaEur, sber, qiwi, alfa, tinkoff]
-
     const [green, setGreen] = useState({
         fix: false,
         best: true
@@ -111,7 +118,6 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
         }))
     }
 
-
     let filteredApi = api.length > 1 ? api.filter(item => cryptoNames.includes(item.symbol)) : []
 
     !!(filteredApi.length > 1) && filteredApi.splice(2, 0, trc)
@@ -120,13 +126,6 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
     !!(filteredApi.length > 1) && filteredApi.splice(4, 0, ...banks)
 
     filteredApi = filteredApi.concat(filteredAdditional)
-
-    const [percent, setPercent] = useState(0)
-
-    const [selected, setSelected] = useState({
-        give: 'btc',
-        take: 'eth'
-    })
 
     useEffect(() => {
         let isCancel = false
@@ -143,25 +142,39 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
                 console.log(e)
             }
         }
-        const getPercent = async () => {
+        // const getPercent = async () => {
+        //     try {
+        //         if (!isCancel) {
+        //             const response = await axios.get('/api/payment/percent')
+        //             const data = await response.data
+
+        //             const percentData = Number.isInteger(data[0].amount) ? data[0].amount : 2
+        //             setPercent(percentData)
+
+        //             return percent
+
+
+        //         }
+        //     } catch (e) {
+        //         console.log(e)
+        //     }
+        // }
+        const getWallets = async () => {
             try {
                 if (!isCancel) {
-                    const response = await axios.get('/api/payment/percent')
+                    const response = await axios.get('/api/payment/wallets')
                     const data = await response.data
+                    setWallets(data)
 
-                    const percentData = Number.isInteger(data[0].amount) ? data[0].amount : 2
-                    setPercent(percentData)
-
-                    return percent
-
-
+                    return data
                 }
             } catch (e) {
-                console.log(e)
+                console.log(e);
             }
         }
         getCryptoApi()
-        getPercent()
+        getWallets()
+        // getPercent()
 
         //Cleanup
         return () => { isCancel = true }
@@ -169,9 +182,24 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
     }, [])
 
     useEffect(() => {
-        filteredApi.forEach(el => el.current_price += (el.current_price / 100 * percent))
-        console.log(filteredApi);
-    }, [percent])
+
+        for (let i = 0; i < wallets.length; i++) {
+            const symbol = wallets[i]?.symbol.toLowerCase()
+            const percent = wallets[i]?.percent ? wallets[i]?.percent : 0
+            console.log(symbol, percent);
+            for (let j = 0; j < filteredApi.length; j++) {
+                const currItem = filteredApi[j]
+                if (currItem.symbol === symbol) {
+                    currItem.current_price += (currItem.current_price / 100 * percent)
+                }
+            }
+
+        }
+        // JUST UPDATE STATE OF COMPONENT
+        setNewCoins(filteredApi)
+        // filteredApi.forEach(el => el.current_price += (el.current_price / 100 * percent))
+
+    }, [wallets])
 
     useEffect(() => {
         if (popularGive !== undefined && popularTake !== undefined) {
