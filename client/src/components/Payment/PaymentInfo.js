@@ -23,6 +23,7 @@ const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, give
 
     const sendEmail = () => {
         setPaymentStatus(true)
+
         setDisabled(true)
         console.log('CLICK');
         emailjs.send("service_fo7i8yb", "template_aoqa05o", templateParams, "T6dl6-4HD1RHqpWsi")
