@@ -130,16 +130,16 @@ const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit,
         }
     }
 
-    const handleSymbInput = (e) => {
-        e.target.value = e.target.value.replace(/[e\+\-]/gi, "")
-    }
+    // const handleSymbInput = (e) => {
+    //     e.target.value = e.target.value.replace(/[e\+\-]/gi, "")
+    // }
 
     return (
         <form className={s.formExchange}>
             <div className={s.lines}>
                 <div className={s.line}>
                     <div className={s.lineInput}>
-                        <input type='number' id='giveCoins' name='give' onChange={handleInputChange} onKeyDown={(e) => handleSymb(e)} onInput={(e) => handleSymbInput(e)} />
+                        <input type='number' id='giveCoins' name='give' onChange={handleInputChange} onKeyDown={(e) => handleSymb(e)} />
                         <label htmlFor='giveCoins'>Отдаете <span>{isBankGive ? giveItem?.ticker.toUpperCase() : giveItem?.symbol.toUpperCase()}</span></label>
                     </div>
                     <div className={s.i}>
@@ -151,7 +151,7 @@ const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit,
                 </div>
                 <div className={s.line}>
                     <div className={s.lineInput}>
-                        <input type='number' id='takeCoins' name='take' onChange={handleOutputChange} onKeyDown={(e) => handleSymb(e)} onInput={(e) => handleSymbInput(e)} />
+                        <input type='number' id='takeCoins' name='take' onChange={handleOutputChange} onKeyDown={(e) => handleSymb(e)} />
                         <label htmlFor='takeCoins'>Получаете <span>{isBankTake ? takeItem?.ticker.toUpperCase() : takeItem?.symbol.toUpperCase()}</span></label>
                     </div>
                     <div className={s.i}>
