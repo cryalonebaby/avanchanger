@@ -21,6 +21,8 @@ import Seventeen from '../img/blog/17.jpg'
 import Eighteen from '../img/blog/18.jpg'
 
 const BlogPage = () => {
+    const defaultMinus = 99999999
+
     return (
         <div className={s.static}>
             <div className={s.inner}>
@@ -28,6 +30,7 @@ const BlogPage = () => {
                 <div className={s.blogWrapper}>
                     <BlogNews
                         img={One}
+                        minus={defaultMinus}
                         link='https://avanchange.com/ru/blog/148-kak-podklyuchit-polygon-network-v-metamask.html'
                         title='Как подключить Polygon Network в MetaMask?'
                         date='18 Апр 2023'
@@ -35,6 +38,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Two}
+                        minus={defaultMinus * 2}
                         link='https://avanchange.com/ru/blog/147-kak-podklyuchit-harmony-one-v-metamask.html'
                         title='Как подключить Harmony One в MetaMask?'
                         date='14 Апр 2023'
@@ -42,6 +46,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Eighteen}
+                        minus={defaultMinus * 3}
                         link='https://avanchange.com/ru/blog/146-kak-zasteikat-near-cherez-veb-koshelek-near-wallet.html'
                         title='Как застейкать NEAR через веб-кошелек Near Wallet'
                         date='12 Апр 2023 '
@@ -49,6 +54,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Three}
+                        minus={defaultMinus * 4}
                         link='https://avanchange.com/ru/blog/143-cena-bitcoin-vyrosla-na-10-na-etoi-nedele-tri-vozmojnye-prichiny.html'
                         title='Цена Биткоина выросла на 10% на этой неделе - три возможные причины'
                         date='25 Мар 2023 '
@@ -56,6 +62,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Four}
+                        minus={defaultMinus * 5}
                         link='https://avanchange.com/ru/blog/144-poteryali-bitcoin-navsegda-kak-vosstanovit-poteryannuyu-kriptovalyutu.html'
                         title='Потеряли Bitcoin навсегда? Как восстановить потерянную криптовалюту?'
                         date='23 Мар 2023 '
@@ -63,6 +70,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Five}
+                        minus={defaultMinus * 6}
                         link='https://avanchange.com/ru/blog/145-kak-podklyuchit-avalanche-avax-v-metamask.html'
                         title='Как подключить Avalanche (AVAX) в MetaMask?'
                         date='21 Мар 2023 '
@@ -70,6 +78,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Six}
+                        minus={defaultMinus * 7}
                         link='https://avanchange.com/ru/blog/142-steiking-solana-protocol-sol-poshagovaya-instrukciya.html'
                         title='Стейкинг Solana Protocol (SOL). Пошаговая инструкция'
                         date='04 Мар 2023 '
@@ -77,6 +86,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Seven}
+                        minus={defaultMinus * 8}
                         link='https://avanchange.com/ru/blog/141-v-rossii-aktivno-nachali-pokupat-kriptovalyutu-za-rubli.html'
                         title='В России активно начали покупать криптовалюту за рубли и участки Метавселенной'
                         date='02 Мар 2023 '
@@ -84,6 +94,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Eight}
+                        minus={defaultMinus * 9}
                         link='https://avanchange.com/ru/blog/140-chto-takoe-kriptoarbitraj-i-kak-izvlech-iz-nego-vygodu.html'
                         title='Что такое криптоарбитраж и как извлечь из него выгоду?'
                         date='20 Фев 2023 '
@@ -91,6 +102,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Nine}
+                        minus={defaultMinus * 10}
                         link='https://avanchange.com/ru/blog/139-analiz-ceny-babydoge-stoit-li-pokupat.html'
                         title='Анализ цены BabyDoge, стоит ли покупать?'
                         date='12 Фев 2023 '
@@ -98,6 +110,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Ten}
+                        minus={defaultMinus * 11}
                         link='https://avanchange.com/ru/blog/138-indeks-satoshi-pervaya-kommunal-naya-nft-predlagayuschaya-avtomatizaciyu-kriptoinvesticii.html'
                         title='Индекс Сатоши: Первая коммунальная НФТ, предлагающая автоматизацию криптоинвестиций'
                         date='10 Фев 2023 '
@@ -105,6 +118,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Eleven}
+                        minus={defaultMinus * 12}
                         link='https://avanchange.com/ru/blog/137-spacex-s-starlink-budet-prinimat-plateji-v-dogecoin-posle-tesla-nameknul-elon-mask.html'
                         title="SpaceX's Starlink будет принимать платежи в Dogecoin после Tesla, намекнул, Элон Маск"
                         date='08 Фев 2023 '
@@ -112,6 +126,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Twelve}
+                        minus={defaultMinus * 13}
                         link='https://avanchange.com/ru/blog/136-rekomendacii-irs-kak-kriptoinvestory-mogut-soobschat-o-svoix-pokupkax-v-nalogovyx-formax.html'
                         title='Рекомендации IRS, как криптоинвесторы могут сообщать о своих покупках в налоговых формах'
                         date='06 Фев 2023 '
@@ -119,6 +134,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Thirteen}
+                        minus={defaultMinus * 14}
                         link='https://avanchange.com/ru/blog/135-kollekciya-nft-yaxt-kluba-bored-ape-bayc-vse-chto-vam-nujno-znat.html'
                         title='Коллекция NFT яхт-клуба Bored Ape (BAYC): Все, что вам нужно знать'
                         date='04 Фев 2023 '
@@ -126,6 +142,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Fourteen}
+                        minus={defaultMinus * 15}
                         link='https://avanchange.com/ru/blog/134-xeshreit-i-slojnost-litecoin-ltc-vosstanavlivayutsya-nesmotrya-na-padenie-ceny.html'
                         title='Хэшрейт и сложность Litecoin (LTC) восстанавливаются, несмотря на падение цены'
                         date='02 Фев 2023 '
@@ -133,6 +150,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Fiveteen}
+                        minus={defaultMinus * 16}
                         link='https://avanchange.com/ru/blog/133-chto-takoe-kriptopanki-i-pochemu-oni-takie-dorogie.html'
                         title='Что такое криптопанки и почему они такие дорогие?'
                         date='31 Янв 2023 '
@@ -140,6 +158,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Sixteen}
+                        minus={defaultMinus * 17}
                         link='https://avanchange.com/ru/blog/132-rukovodstvo-i-obzor-decentraland-kak-igrat-v-blokchein-igru.html'
                         title='Руководство и обзор Decentraland: Как играть в блокчейн-игру?'
                         date='29 Янв 2023 '
@@ -147,6 +166,7 @@ const BlogPage = () => {
                     />
                     <BlogNews
                         img={Seventeen}
+                        minus={defaultMinus * 18}
                         link='https://avanchange.com/ru/blog/131-kak-dobyvat-monero.html'
                         title='Как добывать Монеро'
                         date='27 Янв 2023 '

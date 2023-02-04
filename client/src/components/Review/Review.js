@@ -1,7 +1,7 @@
 import React from 'react'
 import s from '../../pages/reviews.module.css'
-import {BiGhost} from 'react-icons/bi'
-import { AiFillStar} from 'react-icons/ai'
+import { BiGhost } from 'react-icons/bi'
+import { AiFillStar } from 'react-icons/ai'
 
 // const Review = ({srcBest, srcSumo, name, date, text, link}) => {
 //     const arrDate = date.split(' ')
@@ -39,12 +39,12 @@ import { AiFillStar} from 'react-icons/ai'
 //         </div>
 //     )
 // }
-const Review = ({src, name, date, ip, text, link, minus}) => {
+const Review = ({ src, name, date, ip, text, link, minus }) => {
     let parsed = new Date().getTime()
     let dateObj = new Date(parsed - minus)
 
     let day = dateObj.getDate()
-    let month = dateObj.toLocaleString('ru', {month: 'short'})
+    let month = dateObj.toLocaleString('ru', { month: 'short' })
     let year = dateObj.getFullYear()
     let hour = dateObj.getHours()
     let minute = dateObj.getMinutes()
@@ -59,16 +59,16 @@ const Review = ({src, name, date, ip, text, link, minus}) => {
         <div className={s.item}>
             <div className={s.img}>
                 <span className={s.flaticonGhost}>
-                    <BiGhost size={38} className={s.iconGhost}/>    
-                </span>    
+                    <BiGhost size={38} className={s.iconGhost} />
+                </span>
             </div>
             <div className={s.name}>
                 <a href={link} target={'_blank'} rel={'noreferrer'}>{name}</a>
-                <span className={s.flaticonStar1}><AiFillStar size={15}/></span>
-                <span className={s.flaticonStar1}><AiFillStar size={15}/></span>
-                <span className={s.flaticonStar1}><AiFillStar size={15}/></span>
-                <span className={s.flaticonStar1}><AiFillStar size={15}/></span>
-                <span className={s.flaticonStar1}><AiFillStar size={15}/></span>
+                <span className={s.flaticonStar1}><AiFillStar size={15} /></span>
+                <span className={s.flaticonStar1}><AiFillStar size={15} /></span>
+                <span className={s.flaticonStar1}><AiFillStar size={15} /></span>
+                <span className={s.flaticonStar1}><AiFillStar size={15} /></span>
+                <span className={s.flaticonStar1}><AiFillStar size={15} /></span>
             </div>
             <div className={s.date}>
                 <p>{`${fullDay} ${bigMonth} ${year}, ${fullHours} ${fullMinutes}`}</p>
@@ -78,10 +78,10 @@ const Review = ({src, name, date, ip, text, link, minus}) => {
                 <p>
                     {text}
                 </p>
-                <div className={s.external}>  
+                <div className={s.external}>
                     Отзыв опубликован на
                     <a href={link} target={'_blank'} rel={'noreferrer'}>
-                        <img src={src} alt={'Review'}/>
+                        <img src={src} alt={'Review'} />
                     </a>
                 </div>
             </div>
