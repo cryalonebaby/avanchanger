@@ -31,7 +31,42 @@ const walletsTemplate = [
     // { symbol: 'qiwi', address: '777' },
 ]
 
-const ExchangerOut = ({ selected, filteredApi, green }) => {
+const limits = {
+    'btc': {
+        min: 0.005,
+        max: 3
+    },
+    'eth': {
+        min: 0.06,
+        max: 41
+    },
+    'ltc': {
+        min: 1,
+        max: 670
+    },
+    'trx': {
+        min: 750,
+        max: 955000
+    },
+    'doge': {
+        min: 550,
+        max: 685000
+    },
+    'dash': {
+        min: 0.75,
+        max: 970
+    },
+    'xtz': {
+        min: 41,
+        max: 50500
+    },
+    'zec': {
+        min: 1.1,
+        max: 1350
+    },
+}
+
+const ExchangerOut = ({ selected, filteredApi, green, form, setForm, clearForm }) => {
     const [wallet, setWallet] = useState('')
     const [qr, setQr] = useState('')
 
@@ -88,23 +123,20 @@ const ExchangerOut = ({ selected, filteredApi, green }) => {
 
     let AMOUNT = ratioPrice(giveItem?.current_price, takeItem?.current_price, isGiveBtcAndRub, isTakeBtcAndRub)
 
+    const minLimit = limits[selected.give?.toLowerCase()]?.min
+    const maxLimit = limits[selected.give?.toLowerCase()]?.max
+
     const messages = {
         inputs: 'Введите количество монет для отправки и получения',
         address: `Введите действительный адрес кошелька ${selected.take?.toUpperCase()}`,
         email: 'Введите действительный email',
         telegram: 'Телеграм должен начинаться с @',
-        reserve: `Превышен лимит резерва ${selected.take?.toUpperCase()}`
+        reserve: `Превышен лимит резерва ${selected.take?.toUpperCase()}`,
+        min: `Минимальная сумма обмена ${minLimit} ${selected.give?.toUpperCase()}`,
+        max: `Максимальная сумма обмена ${maxLimit} ${selected.give?.toUpperCase()}`,
     }
 
     const [step, setStep] = useState(false)
-
-    const [form, setForm] = useState({
-        give: '', take: '', address: '', card: '', email: '', telegram: ''
-    })
-
-    const clearForm = () => {
-        setForm({ give: '', take: '', address: '', email: '', telegram: '' })
-    }
 
     const changeHandler = event => {
         setForm({ ...form, [event.target.name]: event.target.value })
@@ -166,6 +198,9 @@ const ExchangerOut = ({ selected, filteredApi, green }) => {
                             <Form
                                 giveItem={giveItem}
                                 takeItem={takeItem}
+                                minLimit={minLimit}
+                                maxLimit={maxLimit}
+                                limits={limits}
                                 form={form}
                                 messages={messages}
                                 changeHandler={changeHandler}

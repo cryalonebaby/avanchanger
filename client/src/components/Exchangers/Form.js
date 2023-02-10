@@ -48,9 +48,10 @@ const examples = {
     'qiwi': '+79057281931',
 }
 
-const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit, handleInputChange, handleOutputChange }) => {
+const Form = ({ giveItem, takeItem, minLimit, maxLimit, limits, form, messages, changeHandler, handleSubmit, handleInputChange, handleOutputChange }) => {
     const emailValidation = /^[a-z0-9!#$%&'*+=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/
     const reserve = Object.keys(reserves).find(item => takeItem?.symbol.toLowerCase() === item)
+    const limit = Object.keys(limits).find(item => giveItem?.symbol.toLowerCase() === item)
     const giveExample = Object.keys(examples).find(item => giveItem?.symbol.toLowerCase() === item)
     const example = Object.keys(examples).find(item => takeItem?.symbol.toLowerCase() === item)
     const message = useMessage()
@@ -91,6 +92,8 @@ const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit,
         const emailInputWrong = form.email.length === 0 || !emailValidation.test(String(form.email).toLowerCase())
         const userAddressWrong = form.address.length < 9 && form.card.length < 9
         const reserveOut = form.take >= reserves[reserve]
+        const lessThanMin = form.give < minLimit
+        const moreThanMax = form.give > maxLimit
 
         if (amountInputEmpty) {
             return 'inputs'
@@ -103,6 +106,12 @@ const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit,
         }
         if (reserveOut) {
             return 'reserve'
+        }
+        if (lessThanMin) {
+            return 'min'
+        }
+        if (moreThanMax) {
+            return 'max'
         }
         return null
     }
@@ -143,8 +152,13 @@ const Form = ({ giveItem, takeItem, form, messages, changeHandler, handleSubmit,
                         <label htmlFor='giveCoins'>Отдаете <span>{isBankGive ? giveItem?.ticker.toUpperCase() : giveItem?.symbol.toUpperCase()}</span></label>
                     </div>
                     <div className={s.i}>
-                        {/* Min: <span>0.3</span> Max: <span>6.5</span>
-                        <br/> */}
+                        {/* TODO */}
+                        {limit && (
+                            <p>
+                                Min: <span>{minLimit}</span> Max: <span>{maxLimit}</span>
+                                <br />
+                            </p>
+                        )}
                         С учетом скидки партнера:
                         <span> 3</span>%
                     </div>

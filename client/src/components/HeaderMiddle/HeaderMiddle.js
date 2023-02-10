@@ -83,6 +83,21 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
         give: 'btc',
         take: 'eth'
     })
+
+    const [form, setForm] = useState({
+        give: '', take: '', address: '', card: '', email: '', telegram: ''
+    })
+
+    const handleForm = (newForm) => {
+        setForm(newForm)
+    }
+
+    const clearForm = () => {
+        setForm({ give: '', take: '', address: '', email: '', telegram: '' })
+    }
+
+    console.log(form);
+
     const [newCoins, setNewCoins] = useState([])
 
     const cryptoNames = ['btc', 'eth', 'ltc', 'xlm', 'xtz', 'zec', 'trx', 'xmr', 'doge', 'dash']
@@ -215,6 +230,12 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
         const giveItem = filteredApi.find(item => item.symbol === selected.give)
         const takeItem = filteredApi.find(item => item.symbol === selected.take)
 
+        setForm({ ...form, give: '', take: '' })
+        const giveCoins = document.querySelector('#giveCoins')
+        const takeCoins = document.querySelector('#takeCoins')
+        giveCoins.value = ''
+        takeCoins.value = ''
+
         if (give) {
             let equal = item.symbol === selected.take
                 || (item.bank && takeItem.bank)
@@ -282,6 +303,9 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
                                 selected={selected}
                                 filteredApi={filteredApi}
                                 green={green}
+                                form={form}
+                                setForm={handleForm}
+                                clearForm={clearForm}
                             />
                             <Telegram />
                         </div>
