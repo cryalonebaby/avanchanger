@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d04ede4f.css",
-    "main.js": "/static/js/main.0438d49b.js",
+    "main.css": "/static/css/main.bc1a59ea.css",
+    "main.js": "/static/js/main.e54c531f.js",
     "static/media/17.jpg": "/static/media/17.fd8cb4b3363254992533.jpg",
     "static/media/13.jpg": "/static/media/13.0b1d4b39d3b80ecfa218.jpg",
     "static/media/11.jpg": "/static/media/11.e247c00ab3a5a329d9ba.jpg",
@@ -34,14 +34,18 @@
     "static/media/prize1.png": "/static/media/prize1.b0fc0f6af9d7d594d99f.png",
     "static/media/glazok-2.png": "/static/media/glazok-2.ef10c0166fb94382f25c.png",
     "static/media/mmgp.png": "/static/media/mmgp.46edbbc0dc1fb4243aad.png",
+    "static/media/customer-service-headphones-svgrepo-com.svg": "/static/media/customer-service-headphones-svgrepo-com.15b23edff6b21059ecaf3c3b10b5b385.svg",
+    "static/media/rocket-svgrepo-com.svg": "/static/media/rocket-svgrepo-com.7eeefe5a32529fd9e5c6bd9601163186.svg",
+    "static/media/writing-letter-svgrepo-com.svg": "/static/media/writing-letter-svgrepo-com.93f9a18280d9b084e61a32993249071e.svg",
+    "static/media/credit-cards-svgrepo-com.svg": "/static/media/credit-cards-svgrepo-com.2f0026d24a70b947ed8d9f3d87c95081.svg",
     "static/media/24-7.svg": "/static/media/24-7.acec8c03fca233044030.svg",
     "static/media/switch.svg": "/static/media/switch.3f9fb7f277de07907c4fd70314f8bf9e.svg",
     "index.html": "/index.html",
-    "main.d04ede4f.css.map": "/static/css/main.d04ede4f.css.map",
-    "main.0438d49b.js.map": "/static/js/main.0438d49b.js.map"
+    "main.bc1a59ea.css.map": "/static/css/main.bc1a59ea.css.map",
+    "main.e54c531f.js.map": "/static/js/main.e54c531f.js.map"
   },
   "entrypoints": [
-    "static/css/main.d04ede4f.css",
-    "static/js/main.0438d49b.js"
+    "static/css/main.bc1a59ea.css",
+    "static/js/main.e54c531f.js"
   ]
 }

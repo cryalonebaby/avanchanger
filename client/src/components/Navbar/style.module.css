@@ -226,15 +226,19 @@ ul li a {
 	font-weight: 700;
 	font-size: 15px;
 	text-decoration: none;
-	display: inline-block;
+	/* display: inline-block; */
 	margin-right: 40px;
-	display: inline-block;
 	position: relative;
 	-webkit-transition: all ease-out 0.2s;
 	-moz-transition: all ease-out 0.2s;
 	-ms-transition: all ease-out 0.2s;
 	-o-transition: all ease-out 0.2s;
 	transition: all ease-out 0.2s;
+}
+.customer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .ul .last {
 	margin-top: 18px;
@@ -274,7 +278,7 @@ ul li a {
 	display: block;
 	border-radius: 5px;
 	z-index: 99;
-	background: #1e262a;
+	background: #1f313a;
 	background-image: -moz-linear-gradient(90deg, #192b34 0, #23353e 100%);
 	background-image: -webkit-linear-gradient(90deg, #192b34 0, #23353e 100%);
 	background-image: -ms-linear-gradient(90deg, #192b34 0, #23353e 100%);
