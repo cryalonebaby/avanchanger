@@ -19,7 +19,7 @@ const MainPage = () => {
                 popularGive={popularGive}
                 popularTake={popularTake}
             />
-            {/* <Carousel /> */}
+            <Carousel />
             <Statistic />
             <About />
             <Changes />

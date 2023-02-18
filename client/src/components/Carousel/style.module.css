@@ -28,13 +28,13 @@
 ul {
 	list-style: none;
 }
-.slickSlider {
+/* .slickSlider {
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	-webkit-touch-callout: none;
 	-khtml-user-select: none;
-}
+} */
 .slickSlider .slickList,
 .slickSlider .slickTrack {
 	-webkit-transform: translate3d(0, 0, 0);
@@ -63,7 +63,14 @@ ul {
 	width: 9917px;
 	margin-left: auto;
 	margin-right: auto;
-	transform: translate3d(-2743px, 0px, 0px);
+}
+.draggable {
+	overflow-x: scroll;
+	cursor: pointer;
+}
+.draggable::-webkit-scrollbar {
+	width: 0;
+	background: transparent;
 }
 .slickInitialized .slickSlide {
 	display: block;
@@ -88,4 +95,9 @@ ul {
 	height: 70px;
 	vertical-align: middle;
 	margin: 0 auto;
+}
+.paymentMethods .m img:hover {
+	-webkit-filter: grayscale(20%) saturate(20);
+	filter: grayscale(20%) saturate(20);
+	opacity: 1;
 }
