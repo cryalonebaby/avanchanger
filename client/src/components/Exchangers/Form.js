@@ -3,6 +3,7 @@ import s from './style.module.css'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
 import { useMessage } from '../../hooks/message.hook'
+import { HiShieldCheck } from 'react-icons/hi'
 
 const reserves = {
     'btc': 21.35,
@@ -55,6 +56,12 @@ const Form = ({ giveItem, takeItem, minLimit, maxLimit, limits, form, messages, 
     const giveExample = Object.keys(examples).find(item => giveItem?.symbol.toLowerCase() === item)
     const example = Object.keys(examples).find(item => takeItem?.symbol.toLowerCase() === item)
     const message = useMessage()
+
+    const shieldIcon = <HiShieldCheck
+        size={20}
+        fill='#fff'
+        style={{ position: 'absolute', top: '11px', left: '50px' }}
+    />
 
     // console.log(giveItem.current_price, takeItem.current_price);
 
@@ -229,7 +236,8 @@ const Form = ({ giveItem, takeItem, minLimit, maxLimit, limits, form, messages, 
                 </div>
                 <div className={s.button}>
                     <button className={cn(s.btn, s.green)} onClick={toContin} type='button'>
-                        Обменять
+                        {shieldIcon}
+                        <span>Обменять</span>
                     </button>
                 </div>
             </div>

@@ -1,1 +1,91 @@
-@import "~materialize-css/dist/css/materialize.min.css";
+/* @import "~materialize-css/dist/css/materialize.min.css"; */
+.paymentMethods {
+	width: 100%;
+	background: #fff;
+	padding: 30px 0;
+}
+.inner {
+	padding: 0 30px;
+	max-width: 1680px;
+	margin: 0 auto;
+	min-width: 320px;
+	position: relative;
+	width: 100%;
+}
+.slickSlider {
+	box-sizing: border-box;
+	user-select: none;
+	-ms-touch-action: pan-y;
+	touch-action: pan-y;
+	-webkit-tap-highlight-color: transparent;
+}
+.slickList,
+.slickSlider,
+.slickTrack {
+	display: block;
+	position: relative;
+}
+ul {
+	list-style: none;
+}
+.slickSlider {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-touch-callout: none;
+	-khtml-user-select: none;
+}
+.slickSlider .slickList,
+.slickSlider .slickTrack {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	outline: 0 !important;
+}
+.slickList {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	outline: 0 !important;
+}
+.slickList,
+.slickSlider,
+.slickTrack {
+	display: block;
+	position: relative;
+}
+.slickTrack {
+	top: 0;
+	left: 0;
+	opacity: 1;
+	width: 9917px;
+	margin-left: auto;
+	margin-right: auto;
+	transform: translate3d(-2743px, 0px, 0px);
+}
+.slickInitialized .slickSlide {
+	display: block;
+	outline: 0;
+}
+.paymentMethods .m {
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+}
+.slickSlide {
+	display: none;
+	float: left;
+	height: 100%;
+	min-height: 1px;
+}
+.paymentMethods .m img {
+	-webkit-filter: grayscale(100%) saturate(50);
+	filter: grayscale(100%) saturate(50);
+	transition: 0.3s;
+	opacity: 0.5;
+	height: 70px;
+	vertical-align: middle;
+	margin: 0 auto;
+}

@@ -6,6 +6,7 @@ import Statistic from '../components/Statistic/Statistic';
 import About from '../components/About/About'
 import Popular from '../components/Popular/Popular';
 import Changes from '../components/Changes/Changes';
+import Carousel from '../components/Carousel/Carousel';
 
 
 const MainPage = () => {
@@ -18,6 +19,7 @@ const MainPage = () => {
                 popularGive={popularGive}
                 popularTake={popularTake}
             />
+            {/* <Carousel /> */}
             <Statistic />
             <About />
             <Changes />

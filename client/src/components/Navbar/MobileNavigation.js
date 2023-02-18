@@ -69,8 +69,8 @@ const MobileNavigation = ({ open, toggleNav }) => {
     const InfoIcon = ({ isActive }) => {
         const color = isActive ? '#FEFFFE' : '#6A6E85'
         return <AiOutlineInfoCircle
-            width='16px'
-            height='16px'
+            width='20px'
+            height='20px'
             fill={color}
             style={{ marginRight: '10px' }}
         />
