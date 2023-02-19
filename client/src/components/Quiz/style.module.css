@@ -1,0 +1,178 @@
+.polls.closed {
+	width: 60px;
+	height: 60px;
+	padding: 0;
+}
+.polls {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	background: #fff;
+	border-radius: 10px;
+	width: 360px;
+	padding: 20px 25px;
+	z-index: 9999;
+	box-shadow: 0 20px 40px 0 rgb(13 21 30 / 30%);
+	transition: 0.2s;
+}
+.polls.closed .button {
+	width: 60px;
+	height: 60px;
+	line-height: 11px;
+	font-weight: 700;
+	position: relative;
+	text-align: center;
+	padding: 10px 0 0;
+	cursor: pointer;
+}
+.polls.closed .button img {
+	height: 24px;
+	max-width: 100%;
+	max-height: 100%;
+}
+.loader {
+	background: url(https://avanchange.com/templates/frontend/default/images/loader.svg)
+		center center no-repeat rgba(255, 255, 255, 0.9);
+	background-size: 36px;
+	z-index: 9;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	display: none;
+	cursor: wait;
+}
+.polls .close {
+	font-size: 11px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	color: #9facbd;
+	cursor: pointer;
+}
+.polls .t {
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+}
+.polls .options {
+	padding: 5px 0 0;
+}
+.polls .option {
+	background: #f5f5f9;
+	border-radius: 6px;
+	position: relative;
+	margin: 5px 0 0;
+}
+.polls .optionPadding {
+	padding: 5px 50px 5px 34px;
+}
+.disabled {
+	padding-left: 12px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 50px;
+}
+.polls .option:hover {
+	cursor: pointer;
+	background: white;
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+.polls .option.disabled:hover {
+	cursor: auto;
+	box-shadow: none;
+	background: #f5f5f9;
+}
+.polls .option .chk {
+	border-radius: 20px;
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	margin-top: -8px;
+	z-index: 2;
+	border: 2px solid #bbbbc8;
+}
+.polls .option .chk b {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 8px;
+	height: 8px;
+	background: #8f8f99;
+	border-radius: 10px;
+	margin-left: -4px;
+	margin-top: -4px;
+	transform: scale(0);
+	transition: 0.2s;
+}
+.polls .option .text {
+	position: relative;
+	z-index: 2;
+}
+.polls .option .value {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	margin-top: -8px;
+	color: #9c9ca7;
+	font-size: 12px;
+	z-index: 2;
+}
+.polls .option .progress {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	height: 100%;
+	border-radius: 6px;
+}
+.polls .option .progress1 {
+	width: 50%;
+	background: #acb6e5;
+	background: -webkit-linear-gradient(to right, #86fde8, #acb6e5);
+	background: linear-gradient(to right, #86fde8, #acb6e5);
+}
+.polls .option .progress2 {
+	width: 17%;
+	background: #a8ff78;
+	background: -webkit-linear-gradient(to right, #78ffd6, #a8ff78);
+	background: linear-gradient(to right, #78ffd6, #a8ff78);
+}
+.polls .option .progress3 {
+	width: 13%;
+	background: #fbd3e9;
+	background: -webkit-linear-gradient(
+		to left,
+		rgba(187, 55, 125, 0.3),
+		rgba(251, 211, 233, 0.5)
+	);
+	background: linear-gradient(
+		to left,
+		rgba(187, 55, 125, 0.3),
+		rgba(251, 211, 233, 0.5)
+	);
+}
+.polls .option .progress4 {
+	width: 19%;
+	background: #f7f8f8;
+	background: -webkit-linear-gradient(to right, #acbb78, #f7f8f8);
+	background: linear-gradient(to right, #acbb78, #f7f8f8);
+}
+.none {
+	display: none;
+}
+
+@media screen and (max-width: 480px) {
+	.polls {
+		bottom: 20px;
+		left: 5%;
+		width: 90%;
+		padding: 16px 20px;
+	}
+}
