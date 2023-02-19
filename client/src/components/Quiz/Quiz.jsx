@@ -30,7 +30,7 @@ const Quiz = () => {
 				<div className={s.close} onClick={handleOpen}>
 					&#10006;
 				</div>
-				<div className={s.t}>Ваш прогноз максимума BTC в 2022 году</div>
+				<div className={s.t}>Ваш прогноз максимума BTC в 2023 году</div>
 				<div className={s.options}>
 					<div
 						className={cn({
