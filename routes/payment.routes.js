@@ -48,8 +48,8 @@ router.post(
     '/sendInfo',
     async (req, res) => {
         try {
-            const { nomerZayavki, zayavkaNa, otdaet, naKoschelek, koschelekKlienta, nomerKartiKlienta, date } = req.body
-            const payment = new Payment({ nomerZayavki, zayavkaNa, otdaet, naKoschelek, koschelekKlienta, nomerKartiKlienta, date })
+            const { nomerZayavki, zayavkaNa, otdaet, poluchaet, naKoschelek, koschelekKlienta, nomerKartiKlienta, date } = req.body
+            const payment = new Payment({ nomerZayavki, zayavkaNa, otdaet, poluchaet, naKoschelek, koschelekKlienta, nomerKartiKlienta, date })
 
             await payment.save()
             res.status(201).json({ message: 'Заявка отправлена' })

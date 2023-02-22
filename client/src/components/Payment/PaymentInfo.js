@@ -38,6 +38,7 @@ const PaymentInfo = ({ isGiveBank, isTakeBank, giveName, email, giveSymbol, give
             nomerZayavki: `${number}`,
             zayavkaNa: `${takeTicker}`,
             otdaet: `${giveAmount}${giveTicker}`,
+            poluchaet: `${takeAmount}${takeTicker}`,
             naKoschelek: `${ownerAddress}`,
             koschelekKlienta: `${userAddress}`,
             nomerKartiKlienta: `${userCard}`,
