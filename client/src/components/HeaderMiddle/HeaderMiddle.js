@@ -96,8 +96,6 @@ const HeaderMiddle = ({ popularGive, popularTake }) => {
         setForm({ give: '', take: '', address: '', email: '', telegram: '' })
     }
 
-    console.log(form);
-
     const [newCoins, setNewCoins] = useState([])
 
     const cryptoNames = ['btc', 'eth', 'ltc', 'xlm', 'xtz', 'zec', 'trx', 'xmr', 'doge', 'dash']
