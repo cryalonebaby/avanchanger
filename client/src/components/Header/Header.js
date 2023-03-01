@@ -36,7 +36,7 @@ const Header = ({ isAuth }) => {
                         </a>
                         <Link to={'/support'} target={'_blank'} rel={'noreferrer'} className={cn(s.eas, s.headerEmail)}>
                             <FiMail size={12} color='#3dd94b' />
-                            <span> avanchange.eu@gmail.com</span>
+                            <span> avanchange.pro@gmail.com</span>
                         </Link>
                         <span className={s.worktime}>
                             <span>
