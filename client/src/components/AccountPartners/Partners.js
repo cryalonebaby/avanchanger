@@ -10,7 +10,7 @@ const Partners = () => {
     const parsedId = auth.userId.replace(/\D/g, '').slice(-4)
     const userId = parsedId ? `${parsedId}` : 1551
 
-    const inp = `https://avanchange.eu/?w=${userId}`
+    const inp = `https://avanchange.pro/?w=${userId}`
 
     const copyText = (inp) => {
         navigator.clipboard.writeText(inp)
